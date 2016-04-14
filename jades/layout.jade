@@ -2,7 +2,7 @@ mixin navbar(page)
   .navbar.navbar-fixed-top.navbar-inverse
     .container
       ul.nav.navbar-nav
-        each item in [{name: "Home", url: '/'},{name: "Blog", url: '/blogs'},{name: "About me", url: '/about'},{name:"Buy DJI UAV", url:"http://click.dji.com/ztQimRjTyML7PDRV?pm=link"}]
+        each item in [{name: "Home", url: '/'},{name: "Blog", url: '/pages/blog.html'},{name: "Example", url: '/pages/example.html'},{name: "About me", url: '/about'},{name:"Buy DJI UAV", url:"http://click.dji.com/ztQimRjTyML7PDRV?pm=link"}]
           li(class="#{item.name == page?'active':''}")
             a(href=item.url)= item.name
 
