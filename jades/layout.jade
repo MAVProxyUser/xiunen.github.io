@@ -1,3 +1,11 @@
+mixin navbar(page)
+  .navbar.navbar-fixed-top
+    .container
+      ul.nav.navbar-nav
+        each item in [{name: "首页", url: '/'},{name: "博文", url: '/blogs'},{name: "关于我", url: '/about'}]
+          li(class="#{item.name == page?'active':''}")
+            a(href=item.url)= item.name
+
 doctype html
 html
   head
