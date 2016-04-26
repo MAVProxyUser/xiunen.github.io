@@ -53,7 +53,7 @@ module.exports = function(grunt){
         tasks: ['sass','cssmin']
       },
       htmls: {
-        files: ['index.jade','jades/*.jade'],
+        files: ['index.jade','jades/*.jade','includes/*.jade'],
         tasks: ['jade']
       }
     }

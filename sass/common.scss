@@ -1,3 +1,32 @@
 .navbar+*{
-  margin-top: 50px;
+  margin-top: 80px;
+}
+.navbar{
+  border-bottom: 1px solid #ddd;
+  li{
+    padding: 25px;
+    a{
+      color: #34495e;
+      padding:2px;
+      &:hover{
+        background:transparent;
+      }
+    }
+    &.active{
+      a{
+        border-bottom: 3px solid #42b983;
+      }
+    }
+  }
+}
+.inline{
+  display: inline-block;
+}
+.navbar-brand{
+  line-height: 50px;
+  height: 80px;
+  font-size: 24px;
+  font-weight: bolder;
+  padding-left: 40px;
+  padding-right: 40px;
 }
