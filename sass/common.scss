@@ -30,3 +30,8 @@
   padding-left: 40px;
   padding-right: 40px;
 }
+a{
+  &.text-link{
+    color: #666;
+  }
+}
