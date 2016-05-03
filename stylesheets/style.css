@@ -24,6 +24,27 @@
   padding-left: 40px;
   padding-right: 40px; }
 
+a.text-link {
+  color: #666; }
+
+.profile {
+  top: 80px;
+  width: 400px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  border-right: 1px solid #ddd; }
+  .profile .experience {
+    list-style: none;
+    padding: 20px; }
+    .profile .experience h3 {
+      margin-top: 30px;
+      font-size: 16px; }
+      .profile .experience h3 i {
+        padding-right: 10px; }
+      .profile .experience h3 ~ div {
+        padding-left: 30px; }
+
 .catalog {
   width: 200px;
   border-right: 1px solid #ddd;
