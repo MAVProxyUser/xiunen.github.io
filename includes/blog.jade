@@ -2,5 +2,6 @@ extend layout
 
 block content
   +navbar('Blog')
-  .page-content
-  include ../includes/catalog.jade
+  .page-content 
+    <%=contents%>
+  include catalog.jade
