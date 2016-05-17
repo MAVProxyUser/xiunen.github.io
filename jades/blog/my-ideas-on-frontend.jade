@@ -2,5 +2,11 @@ extend ../layout
 
 block content
   +navbar('Blog')
-  .page-content.container
-    h1 My Ideas on Frontend
+  .page-content
+
+    :markdown
+      # My Ideas on Frontend
+
+
+      
+  include ../../includes/catalog.jade
