@@ -4,6 +4,8 @@ var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var rename = require("gulp-rename");
 var jade = require('gulp-jade');
+var wrap = require('gulp-wrap');
+var markdown = require('gulp-markdown');
 
 var config = {
   md: './markdowns',
@@ -14,9 +16,17 @@ var config = {
   css: './stylesheets'
 };
 
-gulp.task('markdown', function(){
+gulp.task('markdown', ['template'], function(){
   return gulp.src(path.join(config.md,'**/*.md'))
-    .pipe(gulp.dest(path.join(config.tmp)));
+    .pipe(markdown({ pedantic: true, smartypants: true }))
+    .pipe(wrap({
+      src: config.tmp + '/blog.html'
+    }))
+    .pipe(gulp.dest(path.join(config.page)));
+});
+
+gulp.task('template', function(){
+  return gulp.src(path.join("./includes/blog.jade")).pipe(jade()).pipe(gulp.dest(config.tmp));
 });
 
 gulp.task('jade', function(){
