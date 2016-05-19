@@ -2,5 +2,60 @@ extend ../includes/layout
 
 block content
   +navbar('About me')
-  .page-content.container
-    h1 About me
+  .page-content.container.about-me
+    .row.summry
+      .avatar.pull-left
+        img(src="/images/avatar.jpg")
+      .pull-left
+        h1 Abot Chen
+        .contact-info
+          a.text-link(href="javascript:void(0)")
+            i.fa.fa-male
+            | Male / 28 / Married
+          a.text-link(href="mailto:xiunen@163.com")
+            i.fa.fa-envelope 
+            | xiunen@163.com
+        
+          a.text-link(href="javascript:void(0)")
+            i.fa.fa-wechat 
+            | zokala
+        
+          a.text-link(href="javascript:void(0)")
+            i.fa.fa-map-marker 
+            | Nanshan District, Shenzhen, Guangdong Province, China
+
+    h3 Education
+    .row
+      .col-sm-2 2008.9 - 2012.6
+      .col-sm-10
+          h5 Notheastern University, China (NEU)
+          div NEU is one of top 40 universities in China.
+          div Bachelor of Software Engineer. Rank 15% of college.
+    
+ 
+    h3 Career
+    .row
+      .col-sm-2 2014.3 -——
+      .col-sm-10
+        h5 Technical advisor of MedLink
+
+
+    .row
+      .col-sm-2 2015.5 -——
+      .col-sm-10
+        h5 Senior Web Engineer of DJI
+        div DJI is the best UAV manufacturer of the world.
+    .row
+      .col-sm-2 2012.1 - 2015.4
+      .col-sm-10
+        h5 Senior Frontend Engineer of Baidu Inc.
+        div Baidu is the best Search Engine in Chinese of the world.
+
+
+    h3 Skills
+    .row
+
+    h3 Hobbies
+    .row
+
+

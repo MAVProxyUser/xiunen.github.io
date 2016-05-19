@@ -1,0 +1,26 @@
+.about-me{
+  margin-top: 100px;
+  .row{
+    margin-bottom: 10px;
+    .col-sm-2{
+      padding-top: 10px;
+    }
+  }
+  .summry{
+    margin-bottom: 40px;
+  }
+  h3{
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 4px;
+  }
+  .contact-info{
+    margin-top: 40px;
+    >*{
+      display: block;
+      >i{
+        min-width: 16px;
+        margin-right: 5px;
+      }
+    }
+  }
+}
