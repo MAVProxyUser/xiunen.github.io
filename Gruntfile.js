@@ -1,3 +1,4 @@
+//@deprecated, using gulp now
 module.exports = function(grunt){
   grunt.initConfig({
     sass:{

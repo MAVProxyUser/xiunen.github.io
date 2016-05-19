@@ -35,3 +35,13 @@ a{
     color: #666;
   }
 }
+.avatar{
+  width: 160px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  padding: 2px;
+  margin-right: 20px;
+  img{
+    width: 100%;
+  }
+}

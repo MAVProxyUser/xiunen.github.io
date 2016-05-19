@@ -6,6 +6,7 @@ var rename = require("gulp-rename");
 var jade = require('gulp-jade');
 var wrap = require('gulp-wrap');
 var markdown = require('gulp-markdown');
+var watch = require('gulp-watch');
 
 var config = {
   md: './markdowns',
@@ -46,6 +47,18 @@ gulp.task('sass', function(){
     .pipe(rename({extname:'.min.css'}))
     .pipe(gulp.dest(path.join(config.css)));
 });
+
+gulp.task('watch', function(){
+  watch(['markdowns/*.md','markdowns/**/*.md'], function(){
+    gulp.run(['markdown']);
+  });
+  watch(['jades/*.jade','jades/**/*.jade','includes/*.jade'], function(){
+    gulp.run(['jade','template']);
+  });
+  watch('sass/*.scss', function(){
+    gulp.run(['sass']);
+  });
+})
 
 gulp.task('default',['sass','markdown','jade'], function(){
   // gulp.start('markdown');
