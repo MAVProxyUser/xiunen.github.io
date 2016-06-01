@@ -15,10 +15,13 @@ function indexFromMarkdown(opts) {
     }, opts);
     var json = [];
     return through.obj(function(file, enc, cb) {
-        // file.contents
         var filename = file.path.replace(file.base, '');
         var obj = { title: '', tags: [], filename: filename, ctime: file.stat.ctime, birthtime: file.stat.birthtime, mtime: file.stat.mtime };
-        // json[gutil.replaceExtension(filename, opts.file_ext)] = obj;
+        var contents = file.contents.toString().split('\n');
+        obj.title = contents[0].replace(/^#/,'').replace(/^\s*/,'');
+        obj.tags = contents[1].split(/\s/).map(function(item){
+            return item.replace(/`/g,'');
+        });
         json.push(obj);
         cb(null, file);
     }, function(cb) {
