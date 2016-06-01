@@ -21,8 +21,8 @@ var config = {
 
 gulp.task('markdown', ['template'], function() {
     return gulp.src(path.join(config.md, '**/*.md'))
-        .pipe(markdown({ pedantic: true, smartypants: true }))
         .pipe(md_rev({file_ext:'.html'}))
+        .pipe(markdown({ pedantic: true, smartypants: true }))
         .pipe(wrap({
             src: config.tmp + '/blog.html'
         }))
