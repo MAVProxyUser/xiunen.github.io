@@ -4,4 +4,14 @@ extend ../includes/layout
 block content
   +navbar('Blogs')
   .page-content.blog
+    ul.blog-list
+        each item in blogs
+            li
+                a(href="/pages/#{item.filename}") #{item.title}
+                div
+                    each tag in item.tags
+                        code.lbl= tag
+                    time 发布于#{item.birthtime.substring(0,10)}
+
+
   include ../includes/catalog.jade
