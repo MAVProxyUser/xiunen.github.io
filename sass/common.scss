@@ -46,3 +46,19 @@ a{
     width: 100%;
   }
 }
+
+code{
+  .hljs-built_in{
+    color:#AA0D92;
+  }
+  .hljs-keyword,.hljs-literal{
+    color: #a71d5d;
+  }
+  .hljs-number{
+    color: #0086b3;
+  }
+}
+pre{
+  border-radius: 0;
+  border: none;
+}

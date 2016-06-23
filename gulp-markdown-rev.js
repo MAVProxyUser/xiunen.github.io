@@ -11,7 +11,7 @@ function indexFromMarkdown(opts) {
     opts = merge({
         filename: 'markdown.index.json',
         dest: '.tmp',
-        file_ext: '.md'
+        file_ext: '.html'
     }, opts);
     var json = [];
     return through.obj(function(file, enc, cb) {
@@ -22,13 +22,18 @@ function indexFromMarkdown(opts) {
         obj.tags = contents[1].split(/\s/).map(function(item){
             return item.replace(/`/g,'');
         });
+        obj.filename = obj.filename.replace('.md',opts.file_ext);
         json.push(obj);
         cb(null, file);
     }, function(cb) {
         del([opts.filename], function() {
             console.log('delete file' + opts.filename);
         });
-        fs.writeFileSync(path.join(__dirname, opts.dest, opts.filename), JSON.stringify(json, null, '\t'));
+        json.sort(function(a,b){
+            return a.birthtime > b.birthtime ? -1 : 1;
+        });
+        var ret = {blogs:json};
+        fs.writeFileSync(path.join(__dirname, opts.dest, opts.filename), JSON.stringify(ret, null, '\t'));
         cb();
     });
 }
