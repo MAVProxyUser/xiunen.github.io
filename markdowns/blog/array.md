@@ -1,15 +1,16 @@
-#最全的JS数组函数方法介绍
+# 最全的JS数组函数方法介绍
 `Frontend` `Javascript`
 
 ## 数组尾部追加 push
 ```javascript
-var arr = [1,2,3];  
+var arr = [1,2,3];
 arr.push(4);        //arr = [1,2,3,4]  
-var arr = [1,2,3];  
+var arr = [1,2,3];
 arr.push(4,5,6);    //arr = [1,2,3,4,5,6]  
-var arr = [1,2,3];  
+var arr = [1,2,3];
 arr.push([4,5,6]);  //arr = [1,2,3,[4,5,6]]  
 ```
+
 push方法有返回值，返回值为数组的长度
 
 ## 数组尾部删除 pop
@@ -17,6 +18,7 @@ push方法有返回值，返回值为数组的长度
 var arr = ["a","b","c"];  
 arr.pop();      // arr = ["a","b"]  
 ```
+
 pop方法的返回值是删除元素的值，上述代码中的返回值是"c"
 
 ## 数组头部添加 unshift
@@ -28,6 +30,7 @@ arr.unshift("d","e");   //arr = ["d","e","a","b","c"]
 var arr = ["a","b","c"];  
 arr.unshift(["d","e"]); //arr = [["d","e"],"a","b","c"]  
 ```
+
 unshift方法的返回值是数组的长度
 
 ## 数组头部删除 shift
@@ -69,20 +72,27 @@ reverse的返回值是反转后的数组
 ## 数组排序 sort
 ```javascript
 var arr1 = [2,3,1,11];  
-arr1.sort();        // arr1 = [1, 11, 2, 3]   
+arr1.sort();
+// arr1 = [1, 11, 2, 3]   
 var arr2 = ["2","3","1","11"];  
-arr2.sort();        // arr2 = ["1", "11", "2", "3"]   
+arr2.sort();
+// arr2 = ["1", "11", "2", "3"]   
 var arr3 = ["b","a","c","3","1","2"];  
-arr3.sort();        // arr3 = ["1", "2", "3", "a", "b", "c"]  
+arr3.sort();
+// arr3 = ["1", "2", "3", "a", "b", "c"]  
 var arr4 = ["banana","apple","orange","opai"];  
-arr4.sort();        // arr4 = ["apple", "banana", "opai", "orange"] ;  
+arr4.sort();
+// arr4 = ["apple", "banana", "opai", "orange"] ;  
 var arr5 = ["美国","中国","俄罗斯","日本"];  
-arr5.sort();        //["中国", "俄罗斯", "日本", "美国"]   
+arr5.sort();
+//["中国", "俄罗斯", "日本", "美国"]   
 var arr6 = [{key:"small",name:"world"},{key:"big",value:"china"},{key:"mini",name:"japan"}];  
-arr6.sort();        //arr6未进行排序  
+arr6.sort();
+//arr6未进行排序  
 arr6.sort(function(a,b){  
     return a.key>b.key?1:-1;  
-});                 // arr6  = [{{key:"big",value:"china"},{key:"mini",name:"japan"},key:"small",name:"world"}];  
+});
+// arr6  = [{{key:"big",value:"china"},{key:"mini",name:"japan"},key:"small",name:"world"}];  
 ```
 基本类型元素，排序逐个字母按照ascii码值排序，并且数字会转化成数组。对于对象类型，则进行排序；排序可以自定义排序函数，自定义函数返回值大于0，则元素交换，否则不交换。
 
@@ -117,7 +127,7 @@ join方法返回组合后的字符串，并且不拼接非基本数据类型。
 ## 获取数组片段 slice
 ```javascript
 var arr = [1,2,3,4,5,6,7,8];  
-var ret = arr.slice(2,3);       //ret = [3]  
+var ret = arr.slice(2,3);       //ret = [3]
 var ret11 = arr.slice(3,2);     //ret=[];  
 var ret12 = arr.slice(3,-2);    //ret=[4,5,6]  
 var ret13 = arr.slice(3,-5);    //ret=[]  

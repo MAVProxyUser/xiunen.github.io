@@ -25,6 +25,6 @@
     "object-assign": "^4.1.0"
   },
   "devDependencies": {
-    "highlight": "^0.2.4"
+    "pygmentize-bundled": "^2.3.0"
   }
 }

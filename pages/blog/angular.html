@@ -1,0 +1,245 @@
+<!DOCTYPE html><html><head><title>Abot Chen</title><meta charset="utf-8"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"><link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="icon" type="image/x-icon" sizes="16x16" href="/favicon.ico"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css"><link rel="stylesheet" href="/stylesheets/style.min.css"></head><body><div id="main" class="page-container"><div class="navbar navbar-fixed-top"><div class="clearfix"><div class="pull-left inline navbar-brand"> 
+Abot Chen</div><ul class="nav navbar-nav"><li><a href="/">Home</a></li><li class="active"><a href="/pages/blog.html">Blogs</a></li><li><a href="/pages/example.html">Examples</a></li><li><a href="/pages/about.html">About me</a></li><li><a href="http://click.dji.com/ztQimRjTyML7PDRV?pm=link" target="_blank">BUY DJI UAV</a></li></ul></div></div><div class="page-content blog"> 
+<h1 id="angular-">Angular使用教程</h1>
+<p><code>Frontend</code> <code>Javascript</code> <code>Angular</code></p>
+<p>Angular的核心思想是通过修改model来控制页面的变化，这是和jquery的最大的不同之处，jquery是通过修改dom来控制页面变化的。</p>
+<h2 id="app">App</h2>
+<p>首先需要在代码中声明应用名称，使用ng-app,例如<code>index.html</code>中：</p>
+<pre><code class="lang-html"><div class="highlight"><pre>    <span class="nt">&lt;html</span> <span class="na">ng-app=</span><span class="s">&quot;test&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/html&gt;</span>
+</pre></div>
+
+</code></pre>
+<p>当然，需要在页面中引入angularjs。</p>
+<p>然后在js中用angular初始化这个应用,例如<code>js/index.js</code>中。</p>
+<pre><code class="lang-js"><div class="highlight"><pre>    <span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">,[]);</span><span class="c1">//第二个参数不能省略</span>
+</pre></div>
+
+</code></pre>
+<h2 id="controller-">controller和模板</h2>
+<p>首先需要在模板中生命ctrl,使用<code>ng-controller=&quot;SomeCtrl&quot;</code>这样的指令。如在<code>index.html</code>中：</p>
+<pre><code class="lang-html"><div class="highlight"><pre>    <span class="nt">&lt;div</span> <span class="na">ng-controller=</span><span class="s">&quot;LinksCtrl&quot;</span><span class="nt">&gt;</span>
+        Hello, {{name}}
+    <span class="nt">&lt;/div&gt;</span>
+</pre></div>
+
+</code></pre>
+<p>然后需要使用<code>app.controller</code>来设置控制该区域的页面变化。如在<code>js/index.js</code>中：</p>
+<pre><code class="lang-js"><div class="highlight"><pre>    <span class="nx">app</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;LinksCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">){</span>
+        <span class="nx">$scope</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;Abot Chen&quot;</span><span class="p">;</span>
+    <span class="p">});</span>
+</pre></div>
+
+</code></pre>
+<p>上面代码中，$scope这个参数是固定的，不能改成其他名字，后面会看到很多’$’开头的变量，名字都是固定的。angular使用了依赖注入的方式来传入实例变量。</p>
+<p>$scope的属性和函数可以在页面中使用。使用$scope变量有两种方法，使用双花括号<code>{{}}</code>或者使用<code>ng-bind</code>:</p>
+<pre><code class="lang-html"><div class="highlight"><pre>    <span class="nt">&lt;div&gt;</span>{{name}}<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">ng-bind=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+</pre></div>
+
+</code></pre>
+<p>推荐使用<code>ng-bind</code>，否则在js还没有加载完成之前，会出现很多花括号。</p>
+<h3 id="-">模板中使用循环</h3>
+<p>循环使用<code>ng-repeat</code>指令,在<code>js/template.js</code>绑定数据<code>$scope.items=[]</code>, 在<code>html/template.html</code>使用数据，如下：</p>
+<pre><code class="lang-html"><div class="highlight"><pre>    <span class="nt">&lt;ul&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">ng-repeat=</span><span class="s">&quot;item in items&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;mailto:{{item.email}}&quot;</span><span class="nt">&gt;</span>
+                {{$index}} {{item.name}}
+            <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;/ul&gt;</span>
+</pre></div>
+
+</code></pre>
+<p>$index是ng-repeat内置变量，其他的参考<a href="https://docs.angularjs.org/api/ng/directive/ngRepeat">ng-repeat</a></p>
+<h3 id="-">模板中使用判断</h3>
+<p>判断使用<code>ng-if=&quot;表达式&quot;</code>，angular模板中不存在else,如果是多条件分支，则需要些多个<code>ng-if</code>的元素。</p>
+<pre><code class="lang-html"><div class="highlight"><pre>    <span class="nt">&lt;div</span> <span class="na">ng-if=</span><span class="s">&quot;level &gt; 3&quot;</span><span class="nt">&gt;</span>Level Greater Than 3<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">ng-if=</span><span class="s">&quot;level &lt;= 3&quot;</span><span class="nt">&gt;</span>Level Less Than Equal 3<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+
+</code></pre>
+<p>当然，多条件分支还可以使用<code>ng-switch</code>指令，<code>ng-switch</code>共需要3个。<code>ng-switch=&quot;表达式&quot;</code>,<code>ng-switch-when=&quot;匹配值&quot;</code>,<code>ng-switch-default=&quot;默认值&quot;</code>.</p>
+<pre><code class="lang-html"><div class="highlight"><pre>    <span class="nt">&lt;div</span> <span class="na">ng-switch=</span><span class="s">&quot;month&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">ng-switch-when=</span><span class="s">&quot;5&quot;</span><span class="nt">&gt;</span>May<span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">ng-switch-when=</span><span class="s">&quot;6&quot;</span><span class="nt">&gt;</span>June<span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">ng-switch-default</span><span class="nt">&gt;</span>Other Month<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+</pre></div>
+
+</code></pre>
+<h3 id="-">如何从页面上获取用户输入</h3>
+<p>使用<code>ng-model=&quot;modelname&quot;</code>指令，用户输入响应的数据时，对应的输入值会被赋值到<code>$scope</code>上。</p>
+<pre><code class="lang-html"><div class="highlight"><pre>    <span class="c">&lt;!--普通input--&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">ng-model=</span><span class="s">&quot;userinput&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span&gt;</span>You input:{{userinput}}<span class="nt">&lt;/span&gt;</span>
+    <span class="c">&lt;!--Radio--&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;radio&quot;</span> <span class="na">ng-model=</span><span class="s">&quot;color&quot;</span> <span class="na">value=</span><span class="s">&quot;red&quot;</span><span class="nt">&gt;</span>Red
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;radio&quot;</span> <span class="na">ng-model=</span><span class="s">&quot;color&quot;</span> <span class="na">value=</span><span class="s">&quot;green&quot;</span><span class="nt">&gt;</span>Green
+    <span class="nt">&lt;div&gt;</span>Color is {{color}}<span class="nt">&lt;/div&gt;</span>
+    <span class="c">&lt;!--Checkbox--&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">ng-model=</span><span class="s">&quot;lang.php&quot;</span> <span class="na">value=</span><span class="s">&quot;PHP&quot;</span><span class="nt">&gt;</span>Jack
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">ng-model=</span><span class="s">&quot;lang.js&quot;</span> <span class="na">ng-true-value=</span><span class="s">&quot;JavaScript&quot;</span> <span class="na">ng-false-value=</span><span class="s">&quot;JS&quot;</span><span class="nt">&gt;</span> Javascript
+    <span class="nt">&lt;div&gt;</span>PHP checked: {{lang.php}}<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div&gt;</span>JS checked: {{lang.js}}<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+
+</code></pre>
+<p>在这这里输入的时候，发现<code>You input:</code>
+后面的内容是实时变化的。这是由于angular的model和view是双向绑定的，我们输入的时候，就已经在修改model的值了。所以，如果其他地方设置<code>$scope.userinput=&#39;xxxx&#39;</code>也会修改输入框里的值。</p>
+<pre><code class="lang-js"><div class="highlight"><pre>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">$scope</span><span class="p">.</span><span class="nx">userinput</span><span class="p">);</span>
+</pre></div>
+
+</code></pre>
+<h3 id="-">事件捕捉</h3>
+<p>事件捕捉使用<code>ng-{对应的事件名称}={响应函数(输入参数1,输入参数2,...)}</code>, 如<code>ng-click</code>,<code>ng-submit</code>,<code>ng-change</code>等。</p>
+<pre><code class="lang-html"><div class="highlight"><pre>    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;&quot;</span> <span class="na">ng-click=</span><span class="s">&quot;click_link(10)&quot;</span><span class="nt">&gt;</span>点我<span class="nt">&lt;/a&gt;</span>
+</pre></div>
+
+</code></pre>
+<pre><code class="lang-js"><div class="highlight"><pre>    <span class="nx">$scope</span><span class="p">.</span><span class="nx">click_link</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;输入参数是&#39;</span> <span class="o">+</span> <span class="nx">n</span><span class="p">);</span>
+    <span class="p">}</span>
+</pre></div>
+
+</code></pre>
+<h2 id="service">Service</h2>
+<p>定义service有三种方式，使用<code>app.service()</code>函数、使用<code>app.factory()</code>函数、使用<code>app.value()</code>函数：</p>
+<p>参考<code>js/service.js</code></p>
+<pre><code class="lang-js"><div class="highlight"><pre>    <span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;SomeService1&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="nx">someFunc</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){},</span>
+            <span class="nx">someVar</span><span class="o">:</span> <span class="s2">&quot;xxx&quot;</span>
+        <span class="p">};</span>
+    <span class="p">});</span><span class="c1">//第二参数必须是函数，在这个服务第一次注入到其他controller或者service的时候就会调用，即服务的初始化</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">factory</span><span class="p">(</span><span class="s1">&#39;SomeService2&#39;</span><span class="p">,</span><span class="kd">function</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="nx">someFunc</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){},</span>
+            <span class="nx">someVar</span><span class="o">:</span> <span class="s2">&quot;xxx&quot;</span>
+        <span class="p">};</span>
+    <span class="p">});</span><span class="c1">//第二参数必须是函数，在这个服务第一次注入到其他controller或者service的时候就会调用，即服务的初始化</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">value</span><span class="p">(</span><span class="s1">&#39;SomeService3&#39;</span><span class="p">,{</span>
+        <span class="nx">someFunc</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){},</span>
+        <span class="nx">someVar</span><span class="o">:</span><span class="s2">&quot;xxx&quot;</span>
+    <span class="p">});</span><span class="c1">//第二个函数可以是具体的值，对象，或者函数。如果是函数，只有在调用的时候才执行</span>
+</pre></div>
+
+</code></pre>
+<p>调用方式如下：</p>
+<pre><code class="lang-js"><div class="highlight"><pre>    <span class="nx">app</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;TestCtrl&#39;</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">SomeService1</span><span class="p">,</span> <span class="nx">SomeService2</span><span class="p">,</span> <span class="nx">SomeService3</span><span class="p">){</span>
+        <span class="nx">SomeService1</span><span class="p">.</span><span class="nx">someFunc</span><span class="p">();</span>
+        <span class="nx">SomeService2</span><span class="p">.</span><span class="nx">someFunc</span><span class="p">();</span>
+        <span class="nx">SomeService3</span><span class="p">.</span><span class="nx">someFunc</span><span class="p">();</span>
+    <span class="p">})</span>
+</pre></div>
+
+</code></pre>
+<p>常用内置service</p>
+<p><code>$http</code> 主要用来做ajax请求</p>
+<p><code>$location</code> 封装了<code>location</code>对象</p>
+<p><code>$q</code> 主要用做异步请求的promise</p>
+<p><code>$routeParams</code> 获取url参数</p>
+<h2 id="-directive">指令Directive</h2>
+<p>定义指令使用 <code>app.directive(&#39;directiveName&#39;,function(){})</code>。其中<code>directiveName</code>必须使用驼峰式命名，在模板中使用的使用时则使用类似<code>directive-name</code>这样的中划线式的。
+js参考<code>js/directive</code>,如：</p>
+<pre><code class="lang-js"><div class="highlight"><pre>    <span class="nx">app</span><span class="p">.</span><span class="nx">directive</span><span class="p">(</span><span class="s1">&#39;customDirective&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="nx">restrict</span><span class="o">:</span> <span class="s1">&#39;E&#39;</span><span class="p">,</span>
+            <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;&lt;div&gt;This is a custom directive&lt;/div&gt;&#39;</span>
+        <span class="p">};</span>
+    <span class="p">});</span>
+</pre></div>
+
+</code></pre>
+<p>模板参考<code>html/directive.html</code>,如：</p>
+<pre><code class="lang-html"><div class="highlight"><pre>    <span class="nt">&lt;custom-directive&gt;&lt;/custom-directive&gt;</span>
+</pre></div>
+
+</code></pre>
+<p>restrict的属性值有四个,如下</p>
+<p>E 指令匹配标签名, 如上面的<code>&lt;custom-directive&gt;&lt;/custom-directive&gt;</code></p>
+<p>A 指令匹配属性名称， 如<code>&lt;div custom-directive=&quot;hello&quot;&gt;&lt;/div&gt;</code></p>
+<p>C 指令匹配class, 如<code>&lt;div class=&quot;custom-directive&quot;&gt;&lt;/div&gt;</code></p>
+<p>M 指令匹配注释，如<code>&lt;!-- custom-directive --&gt;</code></p>
+<p>restrict可以设置多种匹配模式，如 <code>restrict:&quot;AEC&quot;</code>,可以匹配标签名，属性，class。</p>
+<p>template是用于指定模板。</p>
+<p>templateUrl用于指定模板的路径。如果template和templateUrl同时指定，将会使用template的值。</p>
+<p>link:function(scope, elem, attr){} 可以认为是指定的初始化函数。scope是指当前应用的作用域，elem是指当前元素，attr是一个包括当前元素所有属性的对象。</p>
+<p>常用内置指令：</p>
+<pre><code><div class="highlight"><pre><span class="nx">ng</span><span class="o">-</span><span class="nx">app</span>
+<span class="nx">ng</span><span class="o">-</span><span class="nx">model</span>
+<span class="nx">ng</span><span class="o">-</span><span class="nx">controller</span>
+<span class="nx">ng</span><span class="o">-</span><span class="nx">view</span>
+<span class="nx">ng</span><span class="o">-</span><span class="nx">src</span>
+<span class="nx">ng</span><span class="o">-</span><span class="nx">link</span>
+<span class="nx">ng</span><span class="o">-</span><span class="nx">href</span>
+<span class="nx">ng</span><span class="o">-</span><span class="k">if</span>
+<span class="nx">ng</span><span class="o">-</span><span class="nx">repeat</span>
+<span class="nx">ng</span><span class="o">-</span><span class="nx">init</span>
+<span class="nx">ng</span><span class="o">-</span><span class="kr">class</span>
+<span class="nx">ng</span><span class="o">-</span><span class="nx">show</span>
+<span class="nx">ng</span><span class="o">-</span><span class="nx">hide</span>
+<span class="nx">ng</span><span class="o">-</span><span class="nx">bind</span>
+</pre></div>
+
+</code></pre><h2 id="-">过滤器</h2>
+<p>过滤器使用<code>app.filter</code>来定义，如下：</p>
+<pre><code class="lang-js"><div class="highlight"><pre>    <span class="nx">app</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="s1">&#39;filterName&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">input</span><span class="p">,</span><span class="nx">arg1</span><span class="p">,</span><span class="nx">arg2</span><span class="p">){</span>
+            <span class="k">return</span> <span class="nx">arg1</span> <span class="o">+</span> <span class="nx">input</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;TestCtrl&#39;</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">){</span>
+        <span class="nx">$scope</span><span class="p">.</span><span class="nx">greeting</span> <span class="o">=</span> <span class="s1">&#39;world&#39;</span><span class="p">;</span>
+    <span class="p">});</span>
+</pre></div>
+
+</code></pre>
+<p>使用过滤器。</p>
+<pre><code class="lang-html"><div class="highlight"><pre>    <span class="nt">&lt;div</span> <span class="na">ng-controller=</span><span class="s">&quot;TestCtrl&quot;</span><span class="nt">&gt;</span>
+        {{greeting|filterName:&quot;Hello &quot;}} <span class="c">&lt;!-- 显示： Hello world --&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+</pre></div>
+
+</code></pre>
+<h2 id="-">组件</h2>
+<p>组件使用<code>app.component(&#39;componentName&#39;,config)</code>来定义。可以参考<code>js/component.js</code></p>
+<pre><code class="lang-javascript"><div class="highlight"><pre>    <span class="nx">app</span><span class="p">.</span><span class="nx">component</span><span class="p">(</span><span class="s1">&#39;userComment&#39;</span><span class="p">,{</span>
+        <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;&lt;div&gt;{{$ctrl.username}}:{{content}}&lt;/div&gt;&#39;</span><span class="p">,</span>
+        <span class="nx">bindings</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">username</span><span class="o">:</span> <span class="s1">&#39; &lt; &#39;</span>
+        <span class="p">},</span>
+        <span class="nx">controller</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">){</span>
+            <span class="nx">$scope</span><span class="p">.</span><span class="nx">content</span> <span class="o">=</span> <span class="s2">&quot;DJI is best uav manufacturor&quot;</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+</pre></div>
+
+</code></pre>
+<p><code>template</code>用于配置组件的模板</p>
+<p><code>templateUrl</code>用于配置组件的模板的路径</p>
+<p><code>controller</code>是控制该组件的controller，其$scope只适用于本身的组件</p>
+<p><code>bindings</code>用于配置从外面接收参数的属性和调用父控制器的方法等。</p>
+<p><code>=</code>是双向绑定的，无论是component中改动还是controller中改动，都会对使用model的部分产生影响。</p>
+<p><code>&lt;</code> 是单向绑定的，在controller中改动model会影响到component里的对应值，但是在component中修改model的话，只会影响component中的model，不会对component之外的controller中的其他部分产生影响。</p>
+<p><code>@</code>接收的是组件的属性值字符串，例如 <code>&lt;component-name nickname=&quot;item&quot;&gt;&lt;/component-name&gt;</code>, nickname配置的是<code>@</code>的话，nickname的值就是’item’，而不是controller的变量的值。</p>
+<p><code>&amp;</code>一般用来调用controller的函数</p>
+<p>组件使用<code>&lt;component-name&gt;&lt;/component-name&gt;</code>调用</p>
+<pre><code class="lang-html"><div class="highlight"><pre>    <span class="nt">&lt;component-name&gt;&lt;/component-name&gt;</span>
+</pre></div>
+
+</code></pre>
+<p>组件和指令有所区别，主要如下：</p>
+<pre><code><div class="highlight"><pre><span class="err">指令有多种匹配方式，组件只匹配标签名称。</span>
+<span class="err">指令的作用域是调用的</span><span class="nx">controller</span><span class="err">，组件的作用域是组件自己的</span><span class="nx">controller</span><span class="err">。</span>
+<span class="err">指令用</span><span class="nx">link</span><span class="err">函数来初始化指令，组件是</span><span class="nx">controller</span><span class="err">函数来初始化。</span>
+</pre></div>
+
+</code></pre><h2 id="-">配置</h2>
+<p>app.config()</p>
+</div><ul class="catalog"><li><a href="/pages/blog.html#Project Management">Project Management</a></li><li><a href="/pages/blog.html#Engineering">Engineering</a></li><li><a href="/pages/blog.html#Server / Deployment">Server / Deployment</a></li><li><a href="/pages/blog.html#Security">Security</a></li><li><a href="/pages/blog.html#Database">Database</a></li><li><a href="/pages/blog.html#Frontend">Frontend</a></li><li><a href="/pages/blog.html#Ruby / Ruby on Rails">Ruby / Ruby on Rails</a></li><li><a href="/pages/blog.html#PHP">PHP</a></li><li><a href="/pages/blog.html#Java">Java</a></li><li><a href="/pages/blog.html#Golang">Golang</a></li><li><a href="/pages/blog.html#Python">Python</a></li><li><a href="/pages/blog.html#Test">Test</a></li><li><a href="/pages/blog.html#Toolkits">Toolkits</a></li></ul></div></body><script type="text/javascript">(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-78432336-1', 'auto');
+ga('send', 'pageview');</script></html>
