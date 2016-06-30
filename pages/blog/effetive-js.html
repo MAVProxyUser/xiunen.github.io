@@ -1,58 +1,76 @@
-<!DOCTYPE html><html><head><title>Abot Chen</title><meta charset="utf-8"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"><link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="icon" type="image/x-icon" sizes="16x16" href="/favicon.ico"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"><link rel="stylesheet" href="/stylesheets/style.min.css"></head><body><div id="main" class="page-container"><div class="navbar navbar-fixed-top"><div class="clearfix"><div class="pull-left inline navbar-brand"> 
+<!DOCTYPE html><html><head><title>Abot Chen</title><meta charset="utf-8"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"><link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="icon" type="image/x-icon" sizes="16x16" href="/favicon.ico"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css"><link rel="stylesheet" href="/stylesheets/style.min.css"></head><body><div id="main" class="page-container"><div class="navbar navbar-fixed-top"><div class="clearfix"><div class="pull-left inline navbar-brand"> 
 Abot Chen</div><ul class="nav navbar-nav"><li><a href="/">Home</a></li><li class="active"><a href="/pages/blog.html">Blogs</a></li><li><a href="/pages/example.html">Examples</a></li><li><a href="/pages/about.html">About me</a></li><li><a href="http://click.dji.com/ztQimRjTyML7PDRV?pm=link" target="_blank">BUY DJI UAV</a></li></ul></div></div><div class="page-content blog"> 
 <h1 id="-js-js-">有趣的JS之JS小技巧</h1>
 <p><code>Frontend</code> <code>Javascript</code></p>
 <p>求数组中的最大值和最小值</p>
-<pre><code class="lang-javascript"><span class="hljs-built_in">var</span> <span class="hljs-built_in">max</span> = Math.<span class="hljs-built_in">max</span>.<span class="hljs-built_in">apply</span>(Array,  [<span class="hljs-number">1</span>, <span class="hljs-number">5</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]);
-<span class="hljs-built_in">var</span> <span class="hljs-built_in">min</span> = Math.<span class="hljs-built_in">min</span>.<span class="hljs-built_in">apply</span>(Array, [<span class="hljs-number">4</span>,<span class="hljs-number">2</span>,<span class="hljs-number">8</span>,<span class="hljs-number">1</span>] );
+<pre><code class="lang-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">max</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nb">Array</span><span class="p">,</span>  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]);</span>
+<span class="kd">var</span> <span class="nx">min</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nb">Array</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="p">);</span>
+</pre></div>
+
 </code></pre>
 <p>获取一个对象的所有的key</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> keys = <span class="hljs-keyword">Object</span>.keys(<span class="hljs-comment">{a:1, b:2}</span>);<span class="hljs-comment">//=&gt;["a","b"]</span>
+<pre><code class="lang-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">keys</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">({</span><span class="nx">a</span><span class="o">:</span><span class="mi">1</span><span class="p">,</span> <span class="nx">b</span><span class="o">:</span><span class="mi">2</span><span class="p">});</span><span class="c1">//=&gt;[&quot;a&quot;,&quot;b&quot;]</span>
+</pre></div>
+
 </code></pre>
 <p>获得一个从数字 10到20的连续数组</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> arr = <span class="hljs-built_in">Array</span>.apply(<span class="hljs-literal">null</span>, {length: <span class="hljs-number">20</span>+<span class="hljs-number">1</span>}).map(<span class="hljs-built_in">Number</span>.call, <span class="hljs-built_in">Number</span>).slice(<span class="hljs-number">10</span>);
-<span class="hljs-keyword">var</span> arr = <span class="hljs-built_in">Object</span>.keys(<span class="hljs-built_in">Array</span>.apply(<span class="hljs-literal">null</span>, {length: <span class="hljs-number">20</span>+<span class="hljs-number">1</span>})).slice(<span class="hljs-number">10</span>);
+<pre><code class="lang-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="p">{</span><span class="nx">length</span><span class="o">:</span> <span class="mi">20</span><span class="o">+</span><span class="mi">1</span><span class="p">}).</span><span class="nx">map</span><span class="p">(</span><span class="nb">Number</span><span class="p">.</span><span class="nx">call</span><span class="p">,</span> <span class="nb">Number</span><span class="p">).</span><span class="nx">slice</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nb">Array</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="p">{</span><span class="nx">length</span><span class="o">:</span> <span class="mi">20</span><span class="o">+</span><span class="mi">1</span><span class="p">})).</span><span class="nx">slice</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</pre></div>
+
 </code></pre>
 <p>字符串换行</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> str = <span class="hljs-string">"hello\
-            world\
-          "</span>;<span class="hljs-comment">//每一行的最后添加“\”, 不会保留换行符</span>
-<span class="hljs-keyword">var</span> str1 = <span class="hljs-string">`hello
-            world`</span>;<span class="hljs-comment">//使用反引号（`）会保留换行符</span>
+<pre><code class="lang-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s2">&quot;hello\</span>
+<span class="s2">            world\</span>
+<span class="s2">          &quot;</span><span class="p">;</span><span class="c1">//每一行的最后添加“\”, 不会保留换行符</span>
+<span class="kd">var</span> <span class="nx">str1</span> <span class="o">=</span> <span class="err">`</span><span class="nx">hello</span>
+            <span class="nx">world</span><span class="err">`</span><span class="p">;</span><span class="c1">//使用反引号（`）会保留换行符</span>
+</pre></div>
+
 </code></pre>
 <p>数组求和</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> arr = [<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">6</span>, <span class="hljs-number">10</span>];
-<span class="hljs-keyword">var</span> sum1 = arr.reduce(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">currentValue, item</span>)</span>{
-    <span class="hljs-keyword">return</span> currentValue + item;
-});
-<span class="hljs-keyword">var</span> sum2 = <span class="hljs-built_in">eval</span>(arr.join(<span class="hljs-string">"+"</span>));
+<pre><code class="lang-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">10</span><span class="p">];</span>
+<span class="kd">var</span> <span class="nx">sum1</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">reduce</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">currentValue</span><span class="p">,</span> <span class="nx">item</span><span class="p">){</span>
+    <span class="k">return</span> <span class="nx">currentValue</span> <span class="o">+</span> <span class="nx">item</span><span class="p">;</span>
+<span class="p">});</span>
+<span class="kd">var</span> <span class="nx">sum2</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="nx">arr</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;+&#39;</span><span class="p">));</span>
+</pre></div>
+
 </code></pre>
 <p>变量交换值</p>
-<pre><code class="lang-javascript">var a=1, b =2;
-a=[<span class="hljs-string">b, b=a</span>][<span class="hljs-symbol">0</span>];//=&gt;a=2, b=1
+<pre><code class="lang-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nx">b</span> <span class="o">=</span><span class="mi">2</span><span class="p">;</span>
+<span class="nx">a</span><span class="o">=</span><span class="p">[</span><span class="nx">b</span><span class="p">,</span> <span class="nx">b</span><span class="o">=</span><span class="nx">a</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span><span class="c1">//=&gt;a=2, b=1</span>
 
-a=a+b;
-b=a-b;
-a=a-b;
+<span class="nx">a</span><span class="o">=</span><span class="nx">a</span><span class="o">+</span><span class="nx">b</span><span class="p">;</span>
+<span class="nx">b</span><span class="o">=</span><span class="nx">a</span><span class="o">-</span><span class="nx">b</span><span class="p">;</span>
+<span class="nx">a</span><span class="o">=</span><span class="nx">a</span><span class="o">-</span><span class="nx">b</span><span class="p">;</span>
+</pre></div>
+
 </code></pre>
 <p>数组去重</p>
-<pre><code class="lang-javascript">[<span class="hljs-name">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>].filter(<span class="hljs-name">function</span>(<span class="hljs-name">item</span>, index, self){
-    return self.indexOf(<span class="hljs-name">item</span>)===index<span class="hljs-comment">;</span>
-})<span class="hljs-comment">;</span>
+<pre><code class="lang-javascript"><div class="highlight"><pre><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">].</span><span class="nx">filter</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">,</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">self</span><span class="p">){</span>
+    <span class="k">return</span> <span class="nx">self</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span><span class="o">===</span><span class="nx">index</span><span class="p">;</span>
+<span class="p">});</span>
+</pre></div>
+
 </code></pre>
 <p>数字分段</p>
-<pre><code class="lang-javascript">(<span class="hljs-string">""</span> + <span class="hljs-number">123456</span>).split(<span class="hljs-string">""</span>).<span class="hljs-keyword">reverse</span>().map(function(item,<span class="hljs-keyword">index</span>){
-  <span class="hljs-keyword">return</span> (<span class="hljs-keyword">index</span> != <span class="hljs-number">0</span> &amp;amp;&amp;amp; <span class="hljs-keyword">index</span> % <span class="hljs-number">3</span> == <span class="hljs-number">0</span>) ? (item + <span class="hljs-string">","</span>) : item;
-}).<span class="hljs-keyword">reverse</span>().join(<span class="hljs-string">""</span>); <span class="hljs-comment">//123,456</span>
+<pre><code class="lang-javascript"><div class="highlight"><pre><span class="p">(</span><span class="s1">&#39;&#39;</span> <span class="o">+</span> <span class="mi">123456</span><span class="p">).</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">).</span><span class="nx">reverse</span><span class="p">().</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">,</span><span class="nx">index</span><span class="p">){</span>
+  <span class="k">return</span> <span class="p">(</span><span class="nx">index</span> <span class="o">!=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">index</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">?</span> <span class="p">(</span><span class="nx">item</span> <span class="o">+</span> <span class="s1">&#39;,&#39;</span><span class="p">)</span> <span class="o">:</span> <span class="nx">item</span><span class="p">;</span>
+<span class="p">}).</span><span class="nx">reverse</span><span class="p">().</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span> <span class="c1">//123,456</span>
+</pre></div>
+
 </code></pre>
 <p>数组转化成对象</p>
-<pre><code class="lang-javascript">[
-  {name: <span class="hljs-string">"blabla"</span>, value: <span class="hljs-string">"haha"</span>},
-  {name: <span class="hljs-string">"blabla2"</span>, value: <span class="hljs-string">"kk"</span>}
-].reduce(<span class="hljs-keyword">function</span>(result, <span class="hljs-literal">item</span>){
-  result[item.name] = item.value;
-  return result;
-},{});//=&gt;{blabla:<span class="hljs-string">"haha"</span>, blabla2: <span class="hljs-string">"kk"</span>}
+<pre><code class="lang-javascript"><div class="highlight"><pre><span class="p">[</span>
+  <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;blabla&#39;</span><span class="p">,</span> <span class="nx">value</span><span class="o">:</span> <span class="s1">&#39;haha&#39;</span><span class="p">},</span>
+  <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;blabla2&#39;</span><span class="p">,</span> <span class="nx">value</span><span class="o">:</span> <span class="s1">&#39;kk&#39;</span><span class="p">}</span>
+<span class="p">].</span><span class="nx">reduce</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">,</span> <span class="nx">item</span><span class="p">){</span>
+  <span class="nx">result</span><span class="p">[</span><span class="nx">item</span><span class="p">.</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="nx">item</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+  <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+<span class="p">},{});</span><span class="c1">//=&gt;{blabla:&#39;haha&#39;, blabla2: &#39;kk&#39;}</span>
+</pre></div>
+
 </code></pre>
 <blockquote>
 <p>Repost from <a href="http://blog.csdn.net/xiunen_z/article/details/51166389">my CSDN Blog</a></p>

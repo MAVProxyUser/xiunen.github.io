@@ -48,17 +48,31 @@ a{
 }
 
 code{
-  .hljs-built_in{
-    color:#AA0D92;
-  }
-  .hljs-keyword,.hljs-literal{
+  .kd,.o{
     color: #a71d5d;
   }
-  .hljs-number{
-    color: #0086b3;
+  .s2,.s,.s1{
+    color: #183691;
+  }
+  .nt{
+    color: #63a35c;
+  }
+  .na,.nb{
+    color: #795da3;
+  }
+
+  .c,.c1{
+    color: #aaa;
+  }
+  pre{
+    padding: 0 10px;
+    margin-bottom: 0;
   }
 }
 pre{
   border-radius: 0;
   border: none;
+  code{
+    display: flex !important;
+  }
 }

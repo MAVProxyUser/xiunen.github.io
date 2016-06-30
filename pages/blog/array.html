@@ -1,193 +1,236 @@
-<!DOCTYPE html><html><head><title>Abot Chen</title><meta charset="utf-8"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"><link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="icon" type="image/x-icon" sizes="16x16" href="/favicon.ico"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"><link rel="stylesheet" href="/stylesheets/style.min.css"></head><body><div id="main" class="page-container"><div class="navbar navbar-fixed-top"><div class="clearfix"><div class="pull-left inline navbar-brand"> 
+<!DOCTYPE html><html><head><title>Abot Chen</title><meta charset="utf-8"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"><link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="icon" type="image/x-icon" sizes="16x16" href="/favicon.ico"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css"><link rel="stylesheet" href="/stylesheets/style.min.css"></head><body><div id="main" class="page-container"><div class="navbar navbar-fixed-top"><div class="clearfix"><div class="pull-left inline navbar-brand"> 
 Abot Chen</div><ul class="nav navbar-nav"><li><a href="/">Home</a></li><li class="active"><a href="/pages/blog.html">Blogs</a></li><li><a href="/pages/example.html">Examples</a></li><li><a href="/pages/about.html">About me</a></li><li><a href="http://click.dji.com/ztQimRjTyML7PDRV?pm=link" target="_blank">BUY DJI UAV</a></li></ul></div></div><div class="page-content blog"> 
-<p>#最全的JS数组函数方法介绍
-<code>Frontend</code> <code>Javascript</code></p>
+<h1 id="-js-">最全的JS数组函数方法介绍</h1>
+<p><code>Frontend</code> <code>Javascript</code></p>
 <h2 id="-push">数组尾部追加 push</h2>
-<pre><code class="lang-javascript">var arr = <span class="hljs-comment">[1,2,3]</span>;  
-arr.push(4);        //arr = <span class="hljs-comment">[1,2,3,4]</span>  
-var arr = <span class="hljs-comment">[1,2,3]</span>;  
-arr.push(4,5,6);    //arr = <span class="hljs-comment">[1,2,3,4,5,6]</span>  
-var arr = <span class="hljs-comment">[1,2,3]</span>;  
-arr.push(<span class="hljs-comment">[4,5,6]</span>);  //arr = <span class="hljs-comment">[1,2,3,<span class="hljs-comment">[4,5,6]</span>]</span>
+<pre><code class="lang-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">];</span>
+<span class="nx">arr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>        <span class="c1">//arr = [1,2,3,4]  </span>
+<span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">];</span>
+<span class="nx">arr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">);</span>    <span class="c1">//arr = [1,2,3,4,5,6]  </span>
+<span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">];</span>
+<span class="nx">arr</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]);</span>  <span class="c1">//arr = [1,2,3,[4,5,6]]</span>
+</pre></div>
+
 </code></pre>
 <p>push方法有返回值，返回值为数组的长度</p>
 <h2 id="-pop">数组尾部删除 pop</h2>
-<pre><code class="lang-javascript"><span class="hljs-built_in">var</span> arr = [<span class="hljs-string">"a"</span>,<span class="hljs-string">"b"</span>,<span class="hljs-string">"c"</span>];  
-arr.<span class="hljs-built_in">pop</span>();      // arr = [<span class="hljs-string">"a"</span>,<span class="hljs-string">"b"</span>]
+<pre><code class="lang-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">];</span>  
+<span class="nx">arr</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>      <span class="c1">// arr = [&quot;a&quot;,&quot;b&quot;]</span>
+</pre></div>
+
 </code></pre>
 <p>pop方法的返回值是删除元素的值，上述代码中的返回值是”c”</p>
 <h2 id="-unshift">数组头部添加 unshift</h2>
-<pre><code class="lang-javascript">var arr = [<span class="hljs-string">"a"</span>,<span class="hljs-string">"b"</span>,<span class="hljs-string">"c"</span>];  
-arr.unshift(<span class="hljs-string">"d"</span>);       //arr = [<span class="hljs-string">"d"</span>,<span class="hljs-string">"a"</span>,<span class="hljs-string">"b"</span>,<span class="hljs-string">"c"</span>]  
-var arr = [<span class="hljs-string">"a"</span>,<span class="hljs-string">"b"</span>,<span class="hljs-string">"c"</span>];  
-arr.unshift(<span class="hljs-string">"d"</span>,<span class="hljs-string">"e"</span>);   //arr = [<span class="hljs-string">"d"</span>,<span class="hljs-string">"e"</span>,<span class="hljs-string">"a"</span>,<span class="hljs-string">"b"</span>,<span class="hljs-string">"c"</span>]  
-var arr = [<span class="hljs-string">"a"</span>,<span class="hljs-string">"b"</span>,<span class="hljs-string">"c"</span>];  
-arr.unshift([<span class="hljs-string">"d"</span>,<span class="hljs-string">"e"</span>]); //arr = [[<span class="hljs-string">"d"</span>,<span class="hljs-string">"e"</span>],<span class="hljs-string">"a"</span>,<span class="hljs-string">"b"</span>,<span class="hljs-string">"c"</span>]
+<pre><code class="lang-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">];</span>  
+<span class="nx">arr</span><span class="p">.</span><span class="nx">unshift</span><span class="p">(</span><span class="s2">&quot;d&quot;</span><span class="p">);</span>       <span class="c1">//arr = [&quot;d&quot;,&quot;a&quot;,&quot;b&quot;,&quot;c&quot;]  </span>
+<span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">];</span>  
+<span class="nx">arr</span><span class="p">.</span><span class="nx">unshift</span><span class="p">(</span><span class="s2">&quot;d&quot;</span><span class="p">,</span><span class="s2">&quot;e&quot;</span><span class="p">);</span>   <span class="c1">//arr = [&quot;d&quot;,&quot;e&quot;,&quot;a&quot;,&quot;b&quot;,&quot;c&quot;]  </span>
+<span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">];</span>  
+<span class="nx">arr</span><span class="p">.</span><span class="nx">unshift</span><span class="p">([</span><span class="s2">&quot;d&quot;</span><span class="p">,</span><span class="s2">&quot;e&quot;</span><span class="p">]);</span> <span class="c1">//arr = [[&quot;d&quot;,&quot;e&quot;],&quot;a&quot;,&quot;b&quot;,&quot;c&quot;]</span>
+</pre></div>
+
 </code></pre>
 <p>unshift方法的返回值是数组的长度</p>
 <h2 id="-shift">数组头部删除 shift</h2>
-<pre><code class="lang-javascript">var <span class="hljs-attr">arr</span> = [<span class="hljs-string">"a"</span>,<span class="hljs-string">"b"</span>,<span class="hljs-string">"c"</span>];  
-arr.shift();        //<span class="hljs-attr">arr</span> = [<span class="hljs-string">"b"</span>,<span class="hljs-string">"c"</span>]
+<pre><code class="lang-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">];</span>  
+<span class="nx">arr</span><span class="p">.</span><span class="nx">shift</span><span class="p">();</span>        <span class="c1">//arr = [&quot;b&quot;,&quot;c&quot;]</span>
+</pre></div>
+
 </code></pre>
 <p>shift方法的返回值是删除元素的值</p>
 <h2 id="-splice">删除指定位置的，并且/或者在指定位置插入元素 splice</h2>
-<pre><code class="lang-javascript">var <span class="hljs-attr">arr</span> = [<span class="hljs-string">"a"</span>,<span class="hljs-string">"b"</span>,<span class="hljs-string">"c"</span>,<span class="hljs-string">"e"</span>,<span class="hljs-string">"f"</span>];  
-arr.splice(<span class="hljs-number">1</span>);      //删除从<span class="hljs-attr">index=1开始后面的所有元素.</span> <span class="hljs-attr">arr</span> = [<span class="hljs-string">"a"</span>]  
+<pre><code class="lang-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">,</span><span class="s2">&quot;e&quot;</span><span class="p">,</span><span class="s2">&quot;f&quot;</span><span class="p">];</span>  
+<span class="nx">arr</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>      <span class="c1">//删除从index=1开始后面的所有元素. arr = [&quot;a&quot;]  </span>
 
-var <span class="hljs-attr">arr</span> = [<span class="hljs-string">"a"</span>,<span class="hljs-string">"b"</span>,<span class="hljs-string">"c"</span>,<span class="hljs-string">"e"</span>,<span class="hljs-string">"f"</span>];  
-arr.splice(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>);    //删除从<span class="hljs-attr">index=1开始的两个元素.</span> <span class="hljs-attr">arr</span> = [<span class="hljs-string">"a"</span>,<span class="hljs-string">"e"</span>,<span class="hljs-string">"f"</span>];  
+<span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">,</span><span class="s2">&quot;e&quot;</span><span class="p">,</span><span class="s2">&quot;f&quot;</span><span class="p">];</span>  
+<span class="nx">arr</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>    <span class="c1">//删除从index=1开始的两个元素. arr = [&quot;a&quot;,&quot;e&quot;,&quot;f&quot;];  </span>
 
-var <span class="hljs-attr">arr</span> = [<span class="hljs-string">"a"</span>,<span class="hljs-string">"b"</span>,<span class="hljs-string">"c"</span>,<span class="hljs-string">"e"</span>,<span class="hljs-string">"f"</span>];  
-arr.splice(<span class="hljs-number">1</span>,<span class="hljs-number">0</span>);    //第二个参数为<span class="hljs-number">0</span>时不删除元素. <span class="hljs-attr">arr</span> = [<span class="hljs-string">"a"</span>,<span class="hljs-string">"b"</span>,<span class="hljs-string">"c"</span>,<span class="hljs-string">"e"</span>,<span class="hljs-string">"f"</span>];  
+<span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">,</span><span class="s2">&quot;e&quot;</span><span class="p">,</span><span class="s2">&quot;f&quot;</span><span class="p">];</span>  
+<span class="nx">arr</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>    <span class="c1">//第二个参数为0时不删除元素. arr = [&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;e&quot;,&quot;f&quot;];  </span>
 
-var <span class="hljs-attr">arr</span> = [<span class="hljs-string">"a"</span>,<span class="hljs-string">"b"</span>,<span class="hljs-string">"c"</span>,<span class="hljs-string">"e"</span>,<span class="hljs-string">"f"</span>];  
-arr.splice(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-string">"h"</span>,<span class="hljs-string">"j"</span>,<span class="hljs-string">"l"</span>);    //删除从<span class="hljs-attr">index=1开始的两个元素,</span> 并在<span class="hljs-attr">index=1处插入第三个参数开始的所有元素.</span> <span class="hljs-attr">arr</span> = [<span class="hljs-string">"a"</span>, <span class="hljs-string">"h"</span>, <span class="hljs-string">"j"</span>, <span class="hljs-string">"l"</span>, <span class="hljs-string">"e"</span>, <span class="hljs-string">"f"</span>];  
+<span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">,</span><span class="s2">&quot;e&quot;</span><span class="p">,</span><span class="s2">&quot;f&quot;</span><span class="p">];</span>  
+<span class="nx">arr</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s2">&quot;h&quot;</span><span class="p">,</span><span class="s2">&quot;j&quot;</span><span class="p">,</span><span class="s2">&quot;l&quot;</span><span class="p">);</span>    <span class="c1">//删除从index=1开始的两个元素, 并在index=1处插入第三个参数开始的所有元素. arr = [&quot;a&quot;, &quot;h&quot;, &quot;j&quot;, &quot;l&quot;, &quot;e&quot;, &quot;f&quot;];  </span>
 
-var <span class="hljs-attr">arr</span> = [<span class="hljs-string">"a"</span>,<span class="hljs-string">"b"</span>,<span class="hljs-string">"c"</span>,<span class="hljs-string">"e"</span>,<span class="hljs-string">"f"</span>];    //不删除元素，在<span class="hljs-attr">index=1处插入第三个参数开始的所有元素.</span> [<span class="hljs-string">"a"</span>, <span class="hljs-string">"h"</span>, <span class="hljs-string">"b"</span>, <span class="hljs-string">"c"</span>, <span class="hljs-string">"e"</span>, <span class="hljs-string">"f"</span>]   
-arr.splice(<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-string">"h"</span>);  
+<span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">,</span><span class="s2">&quot;e&quot;</span><span class="p">,</span><span class="s2">&quot;f&quot;</span><span class="p">];</span>    <span class="c1">//不删除元素，在index=1处插入第三个参数开始的所有元素. [&quot;a&quot;, &quot;h&quot;, &quot;b&quot;, &quot;c&quot;, &quot;e&quot;, &quot;f&quot;]   </span>
+<span class="nx">arr</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;h&quot;</span><span class="p">);</span>  
 
-var <span class="hljs-attr">arr</span> = [<span class="hljs-string">"a"</span>,<span class="hljs-string">"b"</span>,<span class="hljs-string">"c"</span>,<span class="hljs-string">"e"</span>,<span class="hljs-string">"f"</span>];  
-arr.splice(<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,[<span class="hljs-string">"h"</span>,<span class="hljs-string">"j"</span>]);      //插入数组，则整个数组当作一个元素. <span class="hljs-attr">arr</span> = [<span class="hljs-string">"a"</span>, [<span class="hljs-string">"h"</span>,<span class="hljs-string">"j"</span>], <span class="hljs-string">"b"</span>, <span class="hljs-string">"c"</span>, <span class="hljs-string">"e"</span>, <span class="hljs-string">"f"</span>]
+<span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">,</span><span class="s2">&quot;e&quot;</span><span class="p">,</span><span class="s2">&quot;f&quot;</span><span class="p">];</span>  
+<span class="nx">arr</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,[</span><span class="s2">&quot;h&quot;</span><span class="p">,</span><span class="s2">&quot;j&quot;</span><span class="p">]);</span>      <span class="c1">//插入数组，则整个数组当作一个元素. arr = [&quot;a&quot;, [&quot;h&quot;,&quot;j&quot;], &quot;b&quot;, &quot;c&quot;, &quot;e&quot;, &quot;f&quot;]</span>
+</pre></div>
+
 </code></pre>
 <p>splice返回一个数组，数组是由删除元素构成的。如果splice的第二个参数为0，则返回的数组里没有元素。</p>
 <h2 id="-reverse">数组反转 reverse</h2>
-<pre><code class="lang-javascript">var <span class="hljs-attr">arr</span> = [<span class="hljs-string">"a"</span>,<span class="hljs-string">"b"</span>,<span class="hljs-string">"c"</span>];  
-var <span class="hljs-attr">rarr</span> = arr.reverse();   //<span class="hljs-attr">arr</span> = [<span class="hljs-string">"c"</span>,<span class="hljs-string">"b"</span>,<span class="hljs-string">"a"</span>], <span class="hljs-attr">rarr</span> = [<span class="hljs-string">"c"</span>,<span class="hljs-string">"b"</span>,<span class="hljs-string">"a"</span>];
+<pre><code class="lang-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">];</span>  
+<span class="kd">var</span> <span class="nx">rarr</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">reverse</span><span class="p">();</span>   <span class="c1">//arr = [&quot;c&quot;,&quot;b&quot;,&quot;a&quot;], rarr = [&quot;c&quot;,&quot;b&quot;,&quot;a&quot;];</span>
+</pre></div>
+
 </code></pre>
 <p>reverse的返回值是反转后的数组</p>
 <h2 id="-sort">数组排序 sort</h2>
-<pre><code class="lang-javascript"><span class="hljs-built_in">var</span> arr1 = [<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">1</span>,<span class="hljs-number">11</span>];  
-arr1.<span class="hljs-built_in">sort</span>();        // arr1 = [<span class="hljs-number">1</span>, <span class="hljs-number">11</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]   
-<span class="hljs-built_in">var</span> arr2 = [<span class="hljs-string">"2"</span>,<span class="hljs-string">"3"</span>,<span class="hljs-string">"1"</span>,<span class="hljs-string">"11"</span>];  
-arr2.<span class="hljs-built_in">sort</span>();        // arr2 = [<span class="hljs-string">"1"</span>, <span class="hljs-string">"11"</span>, <span class="hljs-string">"2"</span>, <span class="hljs-string">"3"</span>]   
-<span class="hljs-built_in">var</span> arr3 = [<span class="hljs-string">"b"</span>,<span class="hljs-string">"a"</span>,<span class="hljs-string">"c"</span>,<span class="hljs-string">"3"</span>,<span class="hljs-string">"1"</span>,<span class="hljs-string">"2"</span>];  
-arr3.<span class="hljs-built_in">sort</span>();        // arr3 = [<span class="hljs-string">"1"</span>, <span class="hljs-string">"2"</span>, <span class="hljs-string">"3"</span>, <span class="hljs-string">"a"</span>, <span class="hljs-string">"b"</span>, <span class="hljs-string">"c"</span>]  
-<span class="hljs-built_in">var</span> arr4 = [<span class="hljs-string">"banana"</span>,<span class="hljs-string">"apple"</span>,<span class="hljs-string">"orange"</span>,<span class="hljs-string">"opai"</span>];  
-arr4.<span class="hljs-built_in">sort</span>();        // arr4 = [<span class="hljs-string">"apple"</span>, <span class="hljs-string">"banana"</span>, <span class="hljs-string">"opai"</span>, <span class="hljs-string">"orange"</span>] ;  
-<span class="hljs-built_in">var</span> arr5 = [<span class="hljs-string">"美国"</span>,<span class="hljs-string">"中国"</span>,<span class="hljs-string">"俄罗斯"</span>,<span class="hljs-string">"日本"</span>];  
-arr5.<span class="hljs-built_in">sort</span>();        //[<span class="hljs-string">"中国"</span>, <span class="hljs-string">"俄罗斯"</span>, <span class="hljs-string">"日本"</span>, <span class="hljs-string">"美国"</span>]   
-<span class="hljs-built_in">var</span> arr6 = [{<span class="hljs-built_in">key</span>:<span class="hljs-string">"small"</span>,name:<span class="hljs-string">"world"</span>},{<span class="hljs-built_in">key</span>:<span class="hljs-string">"big"</span>,value:<span class="hljs-string">"china"</span>},{<span class="hljs-built_in">key</span>:<span class="hljs-string">"mini"</span>,name:<span class="hljs-string">"japan"</span>}];  
-arr6.<span class="hljs-built_in">sort</span>();        //arr6未进行排序  
-arr6.<span class="hljs-built_in">sort</span>(function(a,b){  
-    <span class="hljs-built_in">return</span> a.<span class="hljs-built_in">key</span>&gt;b.<span class="hljs-built_in">key</span>?<span class="hljs-number">1</span>:-<span class="hljs-number">1</span>;  
-});                 // arr6  = [{{<span class="hljs-built_in">key</span>:<span class="hljs-string">"big"</span>,value:<span class="hljs-string">"china"</span>},{<span class="hljs-built_in">key</span>:<span class="hljs-string">"mini"</span>,name:<span class="hljs-string">"japan"</span>},<span class="hljs-built_in">key</span>:<span class="hljs-string">"small"</span>,name:<span class="hljs-string">"world"</span>}];
+<pre><code class="lang-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">arr1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">];</span>  
+<span class="nx">arr1</span><span class="p">.</span><span class="nx">sort</span><span class="p">();</span>
+<span class="c1">// arr1 = [1, 11, 2, 3]   </span>
+<span class="kd">var</span> <span class="nx">arr2</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;2&quot;</span><span class="p">,</span><span class="s2">&quot;3&quot;</span><span class="p">,</span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="s2">&quot;11&quot;</span><span class="p">];</span>  
+<span class="nx">arr2</span><span class="p">.</span><span class="nx">sort</span><span class="p">();</span>
+<span class="c1">// arr2 = [&quot;1&quot;, &quot;11&quot;, &quot;2&quot;, &quot;3&quot;]   </span>
+<span class="kd">var</span> <span class="nx">arr3</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">,</span><span class="s2">&quot;3&quot;</span><span class="p">,</span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="s2">&quot;2&quot;</span><span class="p">];</span>  
+<span class="nx">arr3</span><span class="p">.</span><span class="nx">sort</span><span class="p">();</span>
+<span class="c1">// arr3 = [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;a&quot;, &quot;b&quot;, &quot;c&quot;]  </span>
+<span class="kd">var</span> <span class="nx">arr4</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;banana&quot;</span><span class="p">,</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span><span class="s2">&quot;orange&quot;</span><span class="p">,</span><span class="s2">&quot;opai&quot;</span><span class="p">];</span>  
+<span class="nx">arr4</span><span class="p">.</span><span class="nx">sort</span><span class="p">();</span>
+<span class="c1">// arr4 = [&quot;apple&quot;, &quot;banana&quot;, &quot;opai&quot;, &quot;orange&quot;] ;  </span>
+<span class="kd">var</span> <span class="nx">arr5</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;美国&quot;</span><span class="p">,</span><span class="s2">&quot;中国&quot;</span><span class="p">,</span><span class="s2">&quot;俄罗斯&quot;</span><span class="p">,</span><span class="s2">&quot;日本&quot;</span><span class="p">];</span>  
+<span class="nx">arr5</span><span class="p">.</span><span class="nx">sort</span><span class="p">();</span>
+<span class="c1">//[&quot;中国&quot;, &quot;俄罗斯&quot;, &quot;日本&quot;, &quot;美国&quot;]   </span>
+<span class="kd">var</span> <span class="nx">arr6</span> <span class="o">=</span> <span class="p">[{</span><span class="nx">key</span><span class="o">:</span><span class="s2">&quot;small&quot;</span><span class="p">,</span><span class="nx">name</span><span class="o">:</span><span class="s2">&quot;world&quot;</span><span class="p">},{</span><span class="nx">key</span><span class="o">:</span><span class="s2">&quot;big&quot;</span><span class="p">,</span><span class="nx">value</span><span class="o">:</span><span class="s2">&quot;china&quot;</span><span class="p">},{</span><span class="nx">key</span><span class="o">:</span><span class="s2">&quot;mini&quot;</span><span class="p">,</span><span class="nx">name</span><span class="o">:</span><span class="s2">&quot;japan&quot;</span><span class="p">}];</span>  
+<span class="nx">arr6</span><span class="p">.</span><span class="nx">sort</span><span class="p">();</span>
+<span class="c1">//arr6未进行排序  </span>
+<span class="nx">arr6</span><span class="p">.</span><span class="nx">sort</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">){</span>  
+    <span class="k">return</span> <span class="nx">a</span><span class="p">.</span><span class="nx">key</span><span class="o">&gt;</span><span class="nx">b</span><span class="p">.</span><span class="nx">key</span><span class="o">?</span><span class="mi">1</span><span class="o">:-</span><span class="mi">1</span><span class="p">;</span>  
+<span class="p">});</span>
+<span class="c1">// arr6  = [{{key:&quot;big&quot;,value:&quot;china&quot;},{key:&quot;mini&quot;,name:&quot;japan&quot;},key:&quot;small&quot;,name:&quot;world&quot;}];</span>
+</pre></div>
+
 </code></pre>
 <p>基本类型元素，排序逐个字母按照ascii码值排序，并且数字会转化成数组。对于对象类型，则进行排序；排序可以自定义排序函数，自定义函数返回值大于0，则元素交换，否则不交换。</p>
 <p>以上7个函数均会修改数组本身的值。</p>
 <h2 id="-concat">数组追加 concat</h2>
-<pre><code class="lang-javascript">var arr = <span class="hljs-comment">[1,2,3]</span>;  
-var newarr = arr.concat(7,8);   // arr = <span class="hljs-comment">[1,2,3]</span> newarr = <span class="hljs-comment">[1,2,3,7,8]</span>  
+<pre><code class="lang-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">];</span>  
+<span class="kd">var</span> <span class="nx">newarr</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">);</span>   <span class="c1">// arr = [1,2,3] newarr = [1,2,3,7,8]  </span>
 
-var arr = <span class="hljs-comment">[1,2,3]</span>;  
-var newarr = arr.concat(<span class="hljs-comment">[5,6]</span>); // arr = <span class="hljs-comment">[1,2,3]</span> newarr = <span class="hljs-comment">[1,2,3,5,6]</span>  
+<span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">];</span>  
+<span class="kd">var</span> <span class="nx">newarr</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">concat</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]);</span> <span class="c1">// arr = [1,2,3] newarr = [1,2,3,5,6]  </span>
 
-var arr = <span class="hljs-comment">[1,2,3]</span>;  
-var newarr = arr.concat(<span class="hljs-comment">[5,6,<span class="hljs-comment">[7,8]</span>]</span>);   // arr = <span class="hljs-comment">[1,2,3]</span> newarr = <span class="hljs-comment">[1,2,3,5,6,<span class="hljs-comment">[7,8]</span>]</span>
+<span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">];</span>  
+<span class="kd">var</span> <span class="nx">newarr</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">concat</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]]);</span>   <span class="c1">// arr = [1,2,3] newarr = [1,2,3,5,6,[7,8]]</span>
+</pre></div>
+
 </code></pre>
 <p>追加不改变被追加数组的值，返回追加后的数组；追加多个元素和追加一个数组的效果是一样的</p>
 <h2 id="-join">数组合并成字符串 join</h2>
-<pre><code class="lang-javascript">var <span class="hljs-attr">ret</span> = arr.join(<span class="hljs-string">"&amp;amp;"</span>);    // <span class="hljs-attr">arr</span> = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>] <span class="hljs-attr">ret</span> = <span class="hljs-string">"1&amp;amp;2&amp;amp;3"</span>  
+<pre><code class="lang-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">ret</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">&quot;&amp;&quot;</span><span class="p">);</span>    <span class="c1">// arr = [1,2,3] ret = &quot;1&amp;2&amp;3&quot;  </span>
 
-var <span class="hljs-attr">arr</span> = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,[<span class="hljs-number">4</span>,<span class="hljs-number">5</span>]];  
-var <span class="hljs-attr">ret</span> = arr.join(<span class="hljs-string">"&amp;amp;"</span>);    // <span class="hljs-attr">arr</span> = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,[<span class="hljs-number">4</span>,<span class="hljs-number">5</span>]] <span class="hljs-attr">ret</span> = <span class="hljs-string">"1&amp;amp;2&amp;amp;3"</span>  
+<span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]];</span>  
+<span class="kd">var</span> <span class="nx">ret</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">&quot;&amp;&quot;</span><span class="p">);</span>    <span class="c1">// arr = [1,2,3,[4,5]] ret = &quot;1&amp;2&amp;3&quot;  </span>
 
-var <span class="hljs-attr">arr</span> = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,{hi:<span class="hljs-string">"world"</span>}];  
-var <span class="hljs-attr">ret</span> = arr.join(<span class="hljs-string">"&amp;amp;"</span>);    // <span class="hljs-attr">arr</span> = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,{hi:<span class="hljs-string">"world"</span>}] <span class="hljs-attr">ret</span> = <span class="hljs-string">"1&amp;amp;2&amp;amp;3"</span>
+<span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,{</span><span class="nx">hi</span><span class="o">:</span><span class="s2">&quot;world&quot;</span><span class="p">}];</span>  
+<span class="kd">var</span> <span class="nx">ret</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">&quot;&amp;&quot;</span><span class="p">);</span>    <span class="c1">// arr = [1,2,3,{hi:&quot;world&quot;}] ret = &quot;1&amp;2&amp;3&quot;</span>
+</pre></div>
+
 </code></pre>
 <p>join方法返回组合后的字符串，并且不拼接非基本数据类型。</p>
 <h2 id="-slice">获取数组片段 slice</h2>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> arr = [1,2,3,4,5,6,7,8];  
-<span class="hljs-keyword">var</span> <span class="hljs-keyword">ret</span> = arr.slice(2,3);       <span class="hljs-comment">//ret = [3]  </span>
-<span class="hljs-keyword">var</span> ret11 = arr.slice(3,2);     <span class="hljs-comment">//ret=[];  </span>
-<span class="hljs-keyword">var</span> ret12 = arr.slice(3,-2);    <span class="hljs-comment">//ret=[4,5,6]  </span>
-<span class="hljs-keyword">var</span> ret13 = arr.slice(3,-5);    <span class="hljs-comment">//ret=[]  </span>
-<span class="hljs-keyword">var</span> ret14 = arr.slice(-2,3);    <span class="hljs-comment">//ret=[]  </span>
-<span class="hljs-keyword">var</span> ret15 = arr.slice(-7,3);    <span class="hljs-comment">//ret=[2,3]  </span>
-<span class="hljs-keyword">var</span> ret21 = arr.slice(3);       <span class="hljs-comment">//ret=[4,5,6,7,8]  </span>
-<span class="hljs-keyword">var</span> ret22 = arr.slice(-3);      <span class="hljs-comment">//ret = [6,7,8]</span>
+<pre><code class="lang-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">];</span>  
+<span class="kd">var</span> <span class="nx">ret</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span>       <span class="c1">//ret = [3]</span>
+<span class="kd">var</span> <span class="nx">ret11</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>     <span class="c1">//ret=[];  </span>
+<span class="kd">var</span> <span class="nx">ret12</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">);</span>    <span class="c1">//ret=[4,5,6]  </span>
+<span class="kd">var</span> <span class="nx">ret13</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">);</span>    <span class="c1">//ret=[]  </span>
+<span class="kd">var</span> <span class="nx">ret14</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span>    <span class="c1">//ret=[]  </span>
+<span class="kd">var</span> <span class="nx">ret15</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="o">-</span><span class="mi">7</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span>    <span class="c1">//ret=[2,3]  </span>
+<span class="kd">var</span> <span class="nx">ret21</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>       <span class="c1">//ret=[4,5,6,7,8]  </span>
+<span class="kd">var</span> <span class="nx">ret22</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">);</span>      <span class="c1">//ret = [6,7,8]</span>
+</pre></div>
+
 </code></pre>
 <p>slice如果是一个参数，则返回从指定位置到结束的元素组成的数组；如果是两个参数，则第一个参数时开始位置，第二个参数时结束位置；如果第一个或者第二个参数时负数，则表示倒数位置。例如-7，表示倒数第7个位置，如果总共8个元素，则表示第二个元素。</p>
 <h2 id="-tostring">转换成字符串 toString</h2>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> arr = [1,12,4];  
-<span class="hljs-keyword">var</span> <span class="hljs-keyword">ret</span> = arr.<span class="hljs-keyword">toString</span>();   <span class="hljs-comment">// ret = 1,12,4</span>
+<pre><code class="lang-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">];</span>  
+<span class="kd">var</span> <span class="nx">ret</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">toString</span><span class="p">();</span>   <span class="c1">// ret = 1,12,4</span>
+</pre></div>
+
 </code></pre>
 <h2 id="-indexof">获取元素第一次出现的位置 indexOf</h2>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> arr = [<span class="hljs-string">"a"</span>,<span class="hljs-string">"b"</span>,<span class="hljs-string">"c"</span>,<span class="hljs-string">"d"</span>,<span class="hljs-string">"a"</span>,<span class="hljs-string">"e"</span>,<span class="hljs-string">"c"</span>,<span class="hljs-string">"f"</span>];  
-<span class="hljs-keyword">var</span> ret1 = arr.indexOf(<span class="hljs-string">"a"</span>);     <span class="hljs-comment">//ret = 0  </span>
-<span class="hljs-keyword">var</span> ret2 = arr.indexOf(<span class="hljs-string">"a"</span>,<span class="hljs-number">2</span>);   <span class="hljs-comment">//ret = 4  </span>
-<span class="hljs-keyword">var</span> ret3 = arr.indexOf(<span class="hljs-string">"a"</span>,<span class="hljs-number">-2</span>);  <span class="hljs-comment">//ret = -1  </span>
-<span class="hljs-keyword">var</span> ret4 = arr.indexOf(<span class="hljs-string">"a"</span>,<span class="hljs-number">-6</span>);  <span class="hljs-comment">//ret = 4  </span>
-<span class="hljs-keyword">var</span> ret5 = arr.indexOf(<span class="hljs-string">"a"</span>,<span class="hljs-number">-10</span>); <span class="hljs-comment">//ret=0</span>
+<pre><code class="lang-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">,</span><span class="s2">&quot;d&quot;</span><span class="p">,</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;e&quot;</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">,</span><span class="s2">&quot;f&quot;</span><span class="p">];</span>  
+<span class="kd">var</span> <span class="nx">ret1</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">);</span>     <span class="c1">//ret = 0  </span>
+<span class="kd">var</span> <span class="nx">ret2</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>   <span class="c1">//ret = 4  </span>
+<span class="kd">var</span> <span class="nx">ret3</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">);</span>  <span class="c1">//ret = -1  </span>
+<span class="kd">var</span> <span class="nx">ret4</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="o">-</span><span class="mi">6</span><span class="p">);</span>  <span class="c1">//ret = 4  </span>
+<span class="kd">var</span> <span class="nx">ret5</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="o">-</span><span class="mi">10</span><span class="p">);</span> <span class="c1">//ret=0</span>
+</pre></div>
+
 </code></pre>
 <p>indexOf找不到所需的元素时，返回-1； 从指定位置开始往后找元素第一次出现的位置，如果第二个参数为空的话，默认为0；</p>
 <h2 id="-lastindexof">从后往前获取指定元素第一次出现的位置 lastIndexOf</h2>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> arr = [<span class="hljs-string">"a"</span>,<span class="hljs-string">"bbb"</span>,<span class="hljs-string">"c"</span>,<span class="hljs-string">"d"</span>,<span class="hljs-string">"a"</span>,<span class="hljs-string">"e"</span>,<span class="hljs-string">"c"</span>,<span class="hljs-string">"f"</span>];  
-<span class="hljs-keyword">var</span> ret1 = arr.lastIndexOf(<span class="hljs-string">"a"</span>);     <span class="hljs-comment">//ret = 4  </span>
-<span class="hljs-keyword">var</span> ret2 = arr.lastIndexOf(<span class="hljs-string">"a"</span>,<span class="hljs-number">2</span>);   <span class="hljs-comment">//ret = 0  </span>
-<span class="hljs-keyword">var</span> ret3 = arr.lastIndexOf(<span class="hljs-string">"a"</span>,<span class="hljs-number">-2</span>);  <span class="hljs-comment">//ret = 4  </span>
-<span class="hljs-keyword">var</span> ret4 = arr.lastIndexOf(<span class="hljs-string">"a"</span>,<span class="hljs-number">-6</span>);  <span class="hljs-comment">//ret = 0  </span>
-<span class="hljs-keyword">var</span> ret5 = arr.lastIndexOf(<span class="hljs-string">"a"</span>,<span class="hljs-number">-10</span>); <span class="hljs-comment">//ret = -1</span>
+<pre><code class="lang-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;bbb&quot;</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">,</span><span class="s2">&quot;d&quot;</span><span class="p">,</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;e&quot;</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">,</span><span class="s2">&quot;f&quot;</span><span class="p">];</span>  
+<span class="kd">var</span> <span class="nx">ret1</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">lastIndexOf</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">);</span>     <span class="c1">//ret = 4  </span>
+<span class="kd">var</span> <span class="nx">ret2</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">lastIndexOf</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>   <span class="c1">//ret = 0  </span>
+<span class="kd">var</span> <span class="nx">ret3</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">lastIndexOf</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">);</span>  <span class="c1">//ret = 4  </span>
+<span class="kd">var</span> <span class="nx">ret4</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">lastIndexOf</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="o">-</span><span class="mi">6</span><span class="p">);</span>  <span class="c1">//ret = 0  </span>
+<span class="kd">var</span> <span class="nx">ret5</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">lastIndexOf</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="o">-</span><span class="mi">10</span><span class="p">);</span> <span class="c1">//ret = -1</span>
+</pre></div>
+
 </code></pre>
 <p>lastIndexOf找不到所需的元素时，返回-1；从指定位置开始往前找元素第一次出现的位置，如果第二个参数为空的话，默认是数组的长度。</p>
 <h2 id="-foreach">数组循环 forEach</h2>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> arr = [<span class="hljs-number">5</span>,<span class="hljs-number">2</span>,<span class="hljs-number">7</span>,,<span class="hljs-number">0</span>,<span class="hljs-number">8</span>,<span class="hljs-number">4</span>], b = <span class="hljs-number">0</span>;  
-<span class="hljs-keyword">var</span> ret1 = arr.<span class="hljs-keyword">forEach</span>(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(item, index, thisArr)</span></span>{  
-    <span class="hljs-comment">// this = {hello:"world"};  </span>
-    <span class="hljs-comment">// item 元素的值  </span>
-    <span class="hljs-comment">// 元素在数组中的下标  </span>
-    <span class="hljs-comment">// 数组  </span>
-    b ++;  
-},{hello:<span class="hljs-string">"world"</span>});     <span class="hljs-comment">// b = 6</span>
+<pre><code class="lang-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">,,</span><span class="mi">0</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  
+<span class="kd">var</span> <span class="nx">ret1</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">,</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">thisArr</span><span class="p">){</span>  
+    <span class="c1">// this = {hello:&quot;world&quot;};  </span>
+    <span class="c1">// item 元素的值  </span>
+    <span class="c1">// 元素在数组中的下标  </span>
+    <span class="c1">// 数组  </span>
+    <span class="nx">b</span> <span class="o">++</span><span class="p">;</span>  
+<span class="p">},{</span><span class="nx">hello</span><span class="o">:</span><span class="s2">&quot;world&quot;</span><span class="p">});</span>     <span class="c1">// b = 6</span>
+</pre></div>
+
 </code></pre>
 <p>forEach没有返回值，不提供退出循环的。forEach有个好处是不访问空元素，如上例中第四个元素没有，直接跳过了。</p>
 <p>##数组循环，可以条件退出 every
 every方法和forEach类似，不过every中的回调函数如果返回false、0或者不返回时，循环中断，every函数的返回值是false; 其他情况，every继续循环，返回值是true；</p>
 <h2 id="-some">判断数组中是否存在某个元素 some</h2>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> b = <span class="hljs-number">0</span>;  
-<span class="hljs-keyword">var</span> passed = [<span class="hljs-number">2</span>, <span class="hljs-number">5</span>, <span class="hljs-number">8</span>, <span class="hljs-number">1</span>, <span class="hljs-number">4</span>].some(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(element, <span class="hljs-keyword">index</span>, <span class="hljs-keyword">array</span>)</span> <span class="hljs-comment">{  
-    b++;  
-    return element &gt;= 10;  
-}</span>);</span><span class="hljs-comment">// passed=false, b = 5  </span>
-<span class="hljs-keyword">var</span> b = <span class="hljs-number">0</span>;  
+<pre><code class="lang-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  
+<span class="kd">var</span> <span class="nx">passed</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">].</span><span class="nx">some</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">array</span><span class="p">)</span> <span class="p">{</span>  
+    <span class="nx">b</span><span class="o">++</span><span class="p">;</span>  
+    <span class="k">return</span> <span class="nx">element</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="p">;</span>  
+<span class="p">});</span><span class="c1">// passed=false, b = 5  </span>
+<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  
 
-passed = [<span class="hljs-number">12</span>, <span class="hljs-number">5</span>, <span class="hljs-number">8</span>, <span class="hljs-number">1</span>, <span class="hljs-number">4</span>].some(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(element, <span class="hljs-keyword">index</span>, <span class="hljs-keyword">array</span>)</span> <span class="hljs-comment">{  
-    b++  
-    return element &gt;= 10;  
-}</span>);</span><span class="hljs-comment">// passed=true, b = 1</span>
+<span class="nx">passed</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">].</span><span class="nx">some</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">array</span><span class="p">)</span> <span class="p">{</span>  
+    <span class="nx">b</span><span class="o">++</span>  
+    <span class="k">return</span> <span class="nx">element</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="p">;</span>  
+<span class="p">});</span><span class="c1">// passed=true, b = 1</span>
+</pre></div>
+
 </code></pre>
 <p>some方法是every方法的一种实现，只不过返回值恰好和every相反</p>
 <h2 id="-filter">数组元素筛选 filter</h2>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> filtered = [<span class="hljs-number">12</span>, <span class="hljs-number">5</span>, <span class="hljs-number">8</span>, <span class="hljs-number">130</span>, <span class="hljs-number">44</span>].filter(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(element)</span> </span>{  
-    <span class="hljs-keyword">return</span> element &gt;= <span class="hljs-number">10</span>;  
-}); <span class="hljs-comment">// filtered = [12, 130, 44]</span>
+<pre><code class="lang-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">filtered</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="mi">44</span><span class="p">].</span><span class="nx">filter</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">element</span><span class="p">)</span> <span class="p">{</span>  
+    <span class="k">return</span> <span class="nx">element</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="p">;</span>  
+<span class="p">});</span> <span class="c1">// filtered = [12, 130, 44]</span>
+</pre></div>
+
 </code></pre>
 <p>filter是forEach的一种实现，只不过filter把符合条件的元素返回来了</p>
 <h2 id="-map">数组循环并创建新数组 map</h2>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> ret = [<span class="hljs-number">12</span>, <span class="hljs-number">5</span>, <span class="hljs-number">8</span>, <span class="hljs-number">130</span>, <span class="hljs-number">44</span>].map(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(element)</span> </span>{  
-    <span class="hljs-keyword">return</span> element + <span class="hljs-number">10</span>;  
-}); <span class="hljs-comment">// ret = [22, 15, 18, 140, 54]</span>
+<pre><code class="lang-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">ret</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="mi">44</span><span class="p">].</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">element</span><span class="p">)</span> <span class="p">{</span>  
+    <span class="k">return</span> <span class="nx">element</span> <span class="o">+</span> <span class="mi">10</span><span class="p">;</span>  
+<span class="p">});</span> <span class="c1">// ret = [22, 15, 18, 140, 54]</span>
+</pre></div>
+
 </code></pre>
 <p>map是forEach的一种实现，只不过map把每个元素运算之后构成的新素组返回来了</p>
 <h2 id="-reduce">循环中获取上一次计算的结果 reduce</h2>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> arr = [<span class="hljs-string">"a"</span>,<span class="hljs-string">"bc"</span>,<span class="hljs-string">"def"</span>,<span class="hljs-string">"g"</span>];  
-<span class="hljs-keyword">var</span> ret = arr.reduce(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">prev, cur, index, _arr</span>)</span>{  
-    <span class="hljs-built_in">console</span>.log(prev, cur);  
-    <span class="hljs-keyword">return</span> cur;  
-});     <span class="hljs-comment">// ret = "g"  </span>
-<span class="hljs-comment">//打印如下  </span>
-<span class="hljs-comment">//a bc  </span>
-<span class="hljs-comment">//bc def  </span>
-<span class="hljs-comment">//def g   </span>
-<span class="hljs-keyword">var</span> arr = [<span class="hljs-string">"a"</span>,<span class="hljs-string">"bc"</span>,<span class="hljs-string">"def"</span>,<span class="hljs-string">"g"</span>];  
-<span class="hljs-keyword">var</span> ret = arr.reduce(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">prev, cur, index, _arr</span>)</span>{  
-    <span class="hljs-built_in">console</span>.log(prev, cur);  
-    <span class="hljs-keyword">return</span> cur;  
-},<span class="hljs-string">"hello"</span>); <span class="hljs-comment">// ret = "g"  </span>
-<span class="hljs-comment">//打印如下  </span>
-<span class="hljs-comment">//hello a  </span>
-<span class="hljs-comment">//a bc  </span>
-<span class="hljs-comment">//bc def  </span>
-<span class="hljs-comment">//def g</span>
+<pre><code class="lang-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;bc&quot;</span><span class="p">,</span><span class="s2">&quot;def&quot;</span><span class="p">,</span><span class="s2">&quot;g&quot;</span><span class="p">];</span>  
+<span class="kd">var</span> <span class="nx">ret</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">reduce</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">prev</span><span class="p">,</span> <span class="nx">cur</span><span class="p">,</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">_arr</span><span class="p">){</span>  
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">prev</span><span class="p">,</span> <span class="nx">cur</span><span class="p">);</span>  
+    <span class="k">return</span> <span class="nx">cur</span><span class="p">;</span>  
+<span class="p">});</span>     <span class="c1">// ret = &quot;g&quot;  </span>
+<span class="c1">//打印如下  </span>
+<span class="c1">//a bc  </span>
+<span class="c1">//bc def  </span>
+<span class="c1">//def g   </span>
+<span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;bc&quot;</span><span class="p">,</span><span class="s2">&quot;def&quot;</span><span class="p">,</span><span class="s2">&quot;g&quot;</span><span class="p">];</span>  
+<span class="kd">var</span> <span class="nx">ret</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">reduce</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">prev</span><span class="p">,</span> <span class="nx">cur</span><span class="p">,</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">_arr</span><span class="p">){</span>  
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">prev</span><span class="p">,</span> <span class="nx">cur</span><span class="p">);</span>  
+    <span class="k">return</span> <span class="nx">cur</span><span class="p">;</span>  
+<span class="p">},</span><span class="s2">&quot;hello&quot;</span><span class="p">);</span> <span class="c1">// ret = &quot;g&quot;  </span>
+<span class="c1">//打印如下  </span>
+<span class="c1">//hello a  </span>
+<span class="c1">//a bc  </span>
+<span class="c1">//bc def  </span>
+<span class="c1">//def g</span>
+</pre></div>
+
 </code></pre>
 <p>reduce的返回值是最后一次运算的结果， 它的回调函数中的第一个参数是上次运算的结果，第二个是当前元素的值，第三个是当前下表，第四个是数组。</p>
 <h2 id="-reduceright">逆循环中中获得上一次计算的结果， reduceRight</h2>
