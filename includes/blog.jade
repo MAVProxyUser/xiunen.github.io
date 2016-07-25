@@ -5,15 +5,11 @@ block content
   .page-content.blog 
     <%=contents%>
   include catalog.jade
-  #comment
+  #disqus_thread
 
 
 block javascript
     script.
-        var disqus_config = function () {
-            this.page.url = location.href;
-            this.page.identifier = '#comment'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-        };
         (function() { // DON'T EDIT BELOW THIS LINE
             var d = document, s = d.createElement('script');
             s.src = '//xiunen.disqus.com/embed.js';
