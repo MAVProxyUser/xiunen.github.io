@@ -1,23 +1,17 @@
 extend layout
 
-//- block styles
-    //- link(href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.16.0/codemirror.css",rel="stylesheet")
 block content
   +navbar('Blogs')
   .page-content.blog 
     <%=contents%>
   include catalog.jade
 
-//- block javascript
-//-     script(src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js")
-//-     script(src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.16.0/codemirror.min.js")
-//-     script.
-//-         $('pre code').each(function(){
-//-             var $elem = $(this);
-//-             var code = $elem.text();
-//-             $elem.empty();
-//-             var myCodeMirror = CodeMirror(this,{
-//-                 value:code,
-//-                 readOnly: true
-//-             });
-//-         });
+
+block javascript
+    script.
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = '//xiunen.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
