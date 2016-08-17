@@ -1,0 +1,203 @@
+<!DOCTYPE html><html><head><title>Abot Chen</title><meta charset="utf-8"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"><link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="icon" type="image/x-icon" sizes="16x16" href="/favicon.ico"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css"><link rel="stylesheet" href="/stylesheets/style.min.css"></head><body><div id="main" class="page-container"><div class="navbar navbar-fixed-top"><div class="clearfix"><div class="pull-left inline navbar-brand"> 
+Abot Chen</div><ul class="nav navbar-nav"><li><a href="/">Home</a></li><li class="active"><a href="/pages/blog.html">Blogs</a></li><li><a href="/pages/example.html">Examples</a></li><li><a href="/pages/about.html">About me</a></li><li><a href="http://click.dji.com/ztQimRjTyML7PDRV?pm=link" target="_blank">BUY DJI UAV</a></li></ul></div></div><div class="page-content blog"> 
+<h1 id="node-js-">node.js学习要点</h1>
+<p><code>Javascript</code> <code>Node.js</code></p>
+<p>Nodejs和npm的安装过程请自己百度，并且假设读者你已经基本掌握js知识，本文只写一下学习node.js的要点</p>
+<h2 id="hello-world">hello world</h2>
+<p>创建hello.js, 用node hello.js命令启动服务</p>
+<pre><code class="lang-javascript"><div class="highlight"><pre>    <span class="kd">var</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http&quot;</span><span class="p">);</span>  
+    <span class="nx">http</span><span class="p">.</span><span class="nx">createServer</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">){</span>  
+        <span class="nx">res</span><span class="p">.</span><span class="nx">writeHeader</span><span class="p">(</span><span class="mi">200</span><span class="p">,{</span><span class="s2">&quot;Content-Type&quot;</span><span class="o">:</span><span class="s2">&quot;text/html&quot;</span><span class="p">});</span>   
+        <span class="nx">res</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s1">&#39;hello world&#39;</span><span class="p">);</span>   <span class="c1">//输出hello world  </span>
+        <span class="nx">res</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>  <span class="c1">//调用end函数结束输出  </span>
+    <span class="p">}).</span><span class="nx">listen</span><span class="p">(</span><span class="mi">12345</span><span class="p">);</span><span class="c1">//监听12345端口</span>
+</pre></div>
+
+</code></pre>
+<p>在浏览器中输入 <code>http://localhost:12345/</code> 访问</p>
+<h2 id="-get-">获取GET请求</h2>
+<pre><code class="lang-javascript"><div class="highlight"><pre>    <span class="kd">var</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http&quot;</span><span class="p">);</span>  
+    <span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;url&quot;</span><span class="p">);</span>  
+    <span class="kd">var</span> <span class="nx">querystring</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;querystring&quot;</span><span class="p">);</span>  
+    <span class="nx">http</span><span class="p">.</span><span class="nx">createServer</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">){</span>  
+        <span class="nx">res</span><span class="p">.</span><span class="nx">writeHeader</span><span class="p">(</span><span class="mi">200</span><span class="p">,{</span><span class="s2">&quot;Content-Type&quot;</span><span class="o">:</span><span class="s2">&quot;text/html&quot;</span><span class="p">});</span>  
+        <span class="nx">res</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">url</span><span class="p">);</span>     <span class="c1">//req.url获取请求的URL  </span>
+        <span class="kd">var</span> <span class="nx">url_obj</span> <span class="o">=</span> <span class="nx">url</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">url</span><span class="p">);</span>       <span class="c1">//解析url获取参数，url_obj.pahtname  </span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">url_obj</span><span class="p">);</span>  
+        <span class="kd">var</span> <span class="nx">queries</span> <span class="o">=</span> <span class="nx">querystring</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">query</span><span class="p">);</span> <span class="c1">//获取请求的参数对象  </span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">queries</span><span class="p">);</span>  
+        <span class="nx">res</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>  
+    <span class="p">}).</span><span class="nx">listen</span><span class="p">(</span><span class="mi">12345</span><span class="p">);</span>
+</pre></div>
+
+</code></pre>
+<p>在浏览器中输入<code>http://localhost:12345/?r=adc&amp;q[0]=2&amp;q[1]=3</code>, 得到如下结果：</p>
+<p><img src="/images/node-get.jpeg" alt="Node Get Result"></p>
+<h2 id="-post-">获取post参数</h2>
+<pre><code class="lang-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http&quot;</span><span class="p">);</span>  
+<span class="kd">var</span> <span class="nx">querystring</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;querystring&quot;</span><span class="p">);</span>  
+<span class="nx">http</span><span class="p">.</span><span class="nx">createServer</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">){</span>  
+    <span class="nx">res</span><span class="p">.</span><span class="nx">writeHeader</span><span class="p">(</span><span class="mi">200</span><span class="p">,{</span><span class="s2">&quot;Content-Type&quot;</span><span class="o">:</span><span class="s2">&quot;text/html&quot;</span><span class="p">});</span>  
+    <span class="nx">res</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s1">&#39;&lt;form method=&quot;post&quot; action=&quot;/post?r=test&quot;&gt;&lt;input type=&quot;text&quot; name=&quot;name&quot;&gt;&lt;input type=&quot;password&quot; name=&quot;pwd&quot;&gt;&lt;input type=&quot;submit&quot;&gt;&lt;/form&gt;&#39;</span><span class="p">);</span>  
+    <span class="kd">var</span> <span class="nx">post_data</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>  
+    <span class="nx">req</span><span class="p">.</span><span class="nx">setEncoding</span><span class="p">(</span><span class="s2">&quot;utf8&quot;</span><span class="p">);</span>  
+    <span class="nx">req</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">postDataChunk</span><span class="p">)</span> <span class="p">{</span><span class="c1">//监听post提交  </span>
+            <span class="nx">post_data</span> <span class="o">+=</span> <span class="nx">postDataChunk</span><span class="p">;</span>  
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;data:&quot;</span><span class="o">+</span><span class="nx">post_data</span><span class="p">);</span>  
+        <span class="p">});</span>  
+    <span class="nx">req</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span><span class="c1">//post提交完毕  </span>
+        <span class="kd">var</span> <span class="nx">queries</span> <span class="o">=</span> <span class="nx">querystring</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">post_data</span><span class="p">);</span>  
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">queries</span><span class="p">);</span>  
+        <span class="p">});</span>   
+    <span class="nx">res</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>  
+<span class="p">}).</span><span class="nx">listen</span><span class="p">(</span><span class="mi">12345</span><span class="p">);</span>
+</pre></div>
+
+</code></pre>
+<p>在浏览器输入<code>http://localhost:12345</code>, 出来输入表单，输入test, get点击提交按钮，得到如下结果:</p>
+<p><img src="/images/node-post.jpeg" alt="Node Post Result"></p>
+<h2 id="-">读写文件</h2>
+<p>整个文件读：</p>
+<pre><code class="lang-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;fs&quot;</span><span class="p">);</span>  
+<span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span><span class="p">(</span><span class="s2">&quot;a.txt&quot;</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="nx">data</span><span class="p">){</span> <span class="c1">//a.txt是要读的文件名，data是读出来的文件内容  </span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="k">throw</span> <span class="nx">err</span><span class="p">;</span>  
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>  
+<span class="p">});</span>
+</pre></div>
+
+</code></pre>
+<p>整个文件写：</p>
+<pre><code class="lang-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;fs&quot;</span><span class="p">);</span>  
+<span class="nx">fs</span><span class="p">.</span><span class="nx">writeFile</span><span class="p">(</span><span class="s2">&quot;b.txt&quot;</span><span class="p">,</span><span class="s2">&quot;hello world&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">){</span>  <span class="c1">//b.txt表示写入的文件名，如果没有，就会创建这个文件，“hello world”是写入的内容，会覆盖掉老内容  </span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="k">throw</span> <span class="nx">err</span><span class="p">;</span>  
+<span class="p">});</span>
+</pre></div>
+
+</code></pre>
+<p>使用文件流读写文件</p>
+<pre><code class="lang-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;fs&quot;</span><span class="p">);</span>  
+<span class="kd">var</span> <span class="nx">fReadStream</span> <span class="o">=</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">createReadStream</span><span class="p">(</span><span class="s2">&quot;a.txt&quot;</span><span class="p">,{</span><span class="nx">flags</span><span class="o">:</span><span class="s2">&quot;r&quot;</span><span class="p">,</span><span class="nx">encoding</span><span class="o">:</span><span class="s2">&quot;utf8&quot;</span><span class="p">,</span><span class="nx">mode</span><span class="o">:</span><span class="mi">0666</span><span class="p">});</span>  
+<span class="nx">fReadStream</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>  
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;data:&quot;</span><span class="o">+</span><span class="nx">data</span><span class="p">);</span>  
+<span class="p">});</span>  
+<span class="nx">fReadStream</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;end&#39;</span><span class="p">,</span><span class="kd">function</span><span class="p">(){</span>  
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;read end&quot;</span><span class="p">);</span>  
+<span class="p">});</span>  
+<span class="kd">var</span> <span class="nx">fWriteStream</span> <span class="o">=</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">createWriteStream</span><span class="p">(</span><span class="s2">&quot;b.txt&quot;</span><span class="p">,{</span><span class="nx">flags</span><span class="o">:</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="nx">encoding</span><span class="o">:</span><span class="s2">&quot;utf8&quot;</span><span class="p">,</span><span class="nx">mode</span><span class="o">:</span><span class="mi">0666</span><span class="p">});</span>  
+<span class="nx">fWriteStream</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&quot;write append&quot;</span><span class="p">);</span>  
+<span class="nx">fWriteStream</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
+</pre></div>
+
+</code></pre>
+<p>flags 可以是以下值。
+r ：以读取模式打开文件。
+r+ ：以读写模式打开文件。
+w ：以写入模式打开文件，如果文件不存在则创建。
+w+ ：以读写模式打开文件，如果文件不存在则创建。
+a ：以追加模式打开文件，如果文件不存在则创建。
+a+ ：以读取追加模式打开文件，如果文件不存在则创建。</p>
+<p>使用管道读写文件</p>
+<pre><code class="lang-javascript"><div class="highlight"><pre><span class="nx">fReadStream</span><span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">fWriteStream</span><span class="p">);</span>  
+<span class="nx">fWriteStream</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;close&#39;</span><span class="p">,</span><span class="kd">function</span><span class="p">(){</span>  
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;copy over&#39;</span><span class="p">);</span>    
+<span class="p">});</span>
+</pre></div>
+
+</code></pre>
+<p>详见<a href="http://www.csharpwin.com/dotnetspace/13093r4447.shtml">Nodejs读写文件介绍</a></p>
+<h2 id="-">上传文件</h2>
+<pre><code class="lang-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http&quot;</span><span class="p">);</span>  
+<span class="kd">var</span> <span class="nx">formidable</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;formidable&#39;</span><span class="p">);</span>  
+<span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;fs&quot;</span><span class="p">);</span>  
+<span class="nx">http</span><span class="p">.</span><span class="nx">createServer</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">){</span>  
+    <span class="nx">res</span><span class="p">.</span><span class="nx">writeHeader</span><span class="p">(</span><span class="mi">200</span><span class="p">,{</span><span class="s2">&quot;Content-Type&quot;</span><span class="o">:</span><span class="s2">&quot;text/html&quot;</span><span class="p">});</span>  
+    <span class="k">switch</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">url</span><span class="p">){</span>  
+        <span class="k">case</span> <span class="s2">&quot;/x&quot;</span><span class="o">:</span>  
+            <span class="kd">var</span> <span class="nx">form</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">formidable</span><span class="p">.</span><span class="nx">IncomingForm</span><span class="p">();</span>  
+            <span class="nx">form</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">fields</span><span class="p">,</span> <span class="nx">files</span><span class="p">){</span><span class="c1">//get upload files with parameter files  </span>
+                <span class="c1">//files.f 可以获得name=&quot;f&quot;的文件的相关信息  </span>
+            <span class="p">});</span>  
+        <span class="k">break</span><span class="p">;</span>  
+        <span class="k">default</span><span class="o">:</span>  
+            <span class="nx">res</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s1">&#39;&lt;html&gt;&#39;</span><span class="p">);</span>  
+            <span class="nx">res</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s1">&#39;&lt;head&gt;&#39;</span><span class="p">);</span>  
+            <span class="nx">res</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s1">&#39;&lt;/head&gt;&#39;</span><span class="p">);</span>  
+            <span class="nx">res</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s1">&#39;&lt;body&gt;&#39;</span><span class="p">);</span>  
+            <span class="nx">res</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s1">&#39;&lt;form action=&quot;x&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;&#39;</span><span class="p">);</span>  
+            <span class="nx">res</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s1">&#39;&lt;input type=&quot;file&quot; name=&quot;f&quot;&gt;&#39;</span><span class="p">);</span>  
+            <span class="nx">res</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s1">&#39;&lt;input type=&quot;submit&quot;&gt;&#39;</span><span class="p">);</span>  
+            <span class="nx">res</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s1">&#39;&lt;form&gt;&#39;</span><span class="p">);</span>  
+            <span class="nx">res</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s1">&#39;&lt;/body&gt;&#39;</span><span class="p">);</span>  
+            <span class="nx">res</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s1">&#39;&lt;/html&gt;&#39;</span><span class="p">);</span>  
+    <span class="p">}</span>  
+    <span class="nx">res</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>  
+<span class="p">}).</span><span class="nx">listen</span><span class="p">(</span><span class="mi">12306</span><span class="p">);</span>
+</pre></div>
+
+</code></pre>
+<p>详细参考<a href="http://wangdf-jee.iteye.com/blog/1396734">http://wangdf-jee.iteye.com/blog/1396734</a></p>
+<p>用Express框架上传文件更简单，详细见：<a href="http://stackoverflow.com/questions/17218506/file-upload-to-a-node-js-server">http://stackoverflow.com/questions/17218506/file-upload-to-a-node-js-server</a></p>
+<h2 id="-">操作数据库</h2>
+<p>mysql</p>
+<pre><code class="lang-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http&quot;</span><span class="p">);</span>  
+<span class="kd">var</span> <span class="nx">sys</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;sys&quot;</span><span class="p">);</span>  
+<span class="kd">var</span> <span class="nx">mysql</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;mysql&quot;</span><span class="p">);</span>  
+<span class="kd">var</span> <span class="nx">conn</span> <span class="o">=</span> <span class="nx">mysql</span><span class="p">.</span><span class="nx">createConnection</span><span class="p">({</span>  
+    <span class="nx">host</span><span class="o">:</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span>  
+    <span class="nx">user</span><span class="o">:</span><span class="s2">&quot;root&quot;</span><span class="p">,</span>  
+    <span class="nx">password</span><span class="o">:</span><span class="s2">&quot;123&quot;</span><span class="p">,</span>  
+    <span class="nx">database</span><span class="o">:</span><span class="s2">&quot;node_test&quot;</span><span class="p">,</span>  
+    <span class="nx">port</span><span class="o">:</span><span class="mi">3306</span>  
+<span class="p">});</span>  
+<span class="nx">conn</span><span class="p">.</span><span class="nx">connect</span><span class="p">();</span>  
+<span class="nx">conn</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="s2">&quot;select * from test&quot;</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">rows</span><span class="p">,</span> <span class="nx">fields</span><span class="p">){</span><span class="c1">//sql语句，可以是增删改查的sql，rows是返回的结果，fields是列相关的信息  </span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">err</span><span class="p">){</span>  
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;error&quot;</span><span class="p">);</span>  
+        <span class="nx">conn</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>  
+    <span class="p">}</span>  
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">rows</span><span class="p">);</span>  
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fields</span><span class="p">);</span>  
+<span class="p">});</span>  
+<span class="nx">conn</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
+</pre></div>
+
+</code></pre>
+<p>详细参考：<a href="http://blog.fens.me/nodejs-mysql-intro/">http://blog.fens.me/nodejs-mysql-intro/</a></p>
+<p>mongodb</p>
+<pre><code class="lang-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">mongodb</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;mongodb&quot;</span><span class="p">);</span>  
+<span class="kd">var</span> <span class="nx">server</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">mongodb</span><span class="p">.</span><span class="nx">Server</span><span class="p">(</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span><span class="mi">27017</span><span class="p">,{});</span>  
+<span class="kd">var</span> <span class="nx">db</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">mongodb</span><span class="p">.</span><span class="nx">Db</span><span class="p">(</span><span class="s2">&quot;node_test&quot;</span><span class="p">,</span><span class="nx">server</span><span class="p">,{});</span>  
+<span class="nx">db</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">client</span><span class="p">){</span>  
+    <span class="k">if</span><span class="p">(</span><span class="nx">err</span><span class="p">){</span>  
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>  
+    <span class="p">}</span>  
+    <span class="kd">var</span> <span class="nx">collection</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">mongodb</span><span class="p">.</span><span class="nx">Collection</span><span class="p">(</span><span class="nx">client</span><span class="p">,</span><span class="s1">&#39;user&#39;</span><span class="p">);</span>  
+    <span class="nx">collection</span><span class="p">.</span><span class="nx">insert</span><span class="p">({</span><span class="nx">x</span><span class="o">:</span><span class="mi">1</span><span class="p">,</span><span class="nx">y</span><span class="o">:</span><span class="s2">&quot;hello world&quot;</span><span class="p">,</span><span class="nx">_id</span><span class="o">:</span><span class="mi">123456</span><span class="p">});</span><span class="c1">//插入  </span>
+    <span class="nx">collection</span><span class="p">.</span><span class="nx">insert</span><span class="p">({</span><span class="nx">x</span><span class="o">:</span><span class="mi">2</span><span class="p">,</span><span class="nx">y</span><span class="o">:</span><span class="s2">&quot;hello somebody&quot;</span><span class="p">,</span><span class="nx">_id</span><span class="o">:</span><span class="mi">123456</span><span class="p">});</span><span class="c1">//插入或更新  </span>
+    <span class="nx">collection</span><span class="p">.</span><span class="nx">remove</span><span class="p">({</span><span class="nx">x</span><span class="o">:</span><span class="mi">1</span><span class="p">});</span><span class="c1">//删除  </span>
+<span class="c1">//update可以有四个参数，第一个是要跟新的对象的查询参数，第二个是要跟新的key以及对应的value，第三个是upsert:true|false,是否在没有查找到对象时插入新对象，第四个multi:true|false, 是否更新多列  </span>
+    <span class="nx">collection</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span><span class="nx">x</span><span class="o">:</span><span class="mi">2</span><span class="p">},{</span><span class="nx">$set</span><span class="o">:</span><span class="p">{</span><span class="nx">y</span><span class="o">:</span><span class="s2">&quot;hello kitty&quot;</span><span class="p">}});</span>   
+    <span class="nx">collection</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="nx">x</span><span class="o">:</span><span class="mi">1</span><span class="p">}).</span><span class="nx">toArray</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">items</span><span class="p">){</span><span class="c1">//查询，items为查询结果数组  </span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">items</span><span class="p">);</span>  
+    <span class="p">});</span>  
+
+<span class="p">});</span>
+</pre></div>
+
+</code></pre>
+<p>详见 <a href="https://github.com/mongodb/node-mongodb-native">https://github.com/mongodb/node-mongodb-native</a></p>
+<h2 id="-">常用框架</h2>
+<p><a href="http://expressjs.com/">Express</a></p>
+<p><a href="http://koajs.com/">KOA</a></p>
+<p><a href="http://sailsjs.org/">Sails</a></p>
+<div id="disqus_thread"></div></div><ul class="catalog"><li><a href="/pages/blog.html#Project Management">Project Management</a></li><li><a href="/pages/blog.html#Engineering">Engineering</a></li><li><a href="/pages/blog.html#Server / Deployment">Server / Deployment</a></li><li><a href="/pages/blog.html#Security">Security</a></li><li><a href="/pages/blog.html#Database">Database</a></li><li><a href="/pages/blog.html#Frontend">Frontend</a></li><li><a href="/pages/blog.html#Ruby / Ruby on Rails">Ruby / Ruby on Rails</a></li><li><a href="/pages/blog.html#PHP">PHP</a></li><li><a href="/pages/blog.html#Java">Java</a></li><li><a href="/pages/blog.html#Golang">Golang</a></li><li><a href="/pages/blog.html#Python">Python</a></li><li><a href="/pages/blog.html#Test">Test</a></li><li><a href="/pages/blog.html#Toolkits">Toolkits</a></li></ul></div></body><script>(function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = '//xiunen.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+})();</script><script type="text/javascript">(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-78432336-1', 'auto');
+ga('send', 'pageview');</script></html>
