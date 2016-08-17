@@ -1,0 +1,59 @@
+<!DOCTYPE html><html><head><title>Abot Chen</title><meta charset="utf-8"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"><link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="icon" type="image/x-icon" sizes="16x16" href="/favicon.ico"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css"><link rel="stylesheet" href="/stylesheets/style.min.css"></head><body><div id="main" class="page-container"><div class="navbar navbar-fixed-top"><div class="clearfix"><div class="pull-left inline navbar-brand"> 
+Abot Chen</div><ul class="nav navbar-nav"><li><a href="/">Home</a></li><li class="active"><a href="/pages/blog.html">Blogs</a></li><li><a href="/pages/example.html">Examples</a></li><li><a href="/pages/about.html">About me</a></li><li><a href="http://click.dji.com/ztQimRjTyML7PDRV?pm=link" target="_blank">BUY DJI UAV</a></li></ul></div></div><div class="page-content blog"> 
+<h1 id="-">几种常见可视化库的对比</h1>
+<p><code>Frontend</code> <code>Visualize</code></p>
+<blockquote>
+<p>在平常开发中做了不少可视化展示，多多少少也接触或者调研了一些不错的可视化库， 例如 Highcharts, Echarts, D3, Raphael, GNUPlot等等，不同的是可视化库满足了不同场景下的需求，接下来我们对几种常用的可视化库做一个简单的对比，以帮助大家在技术选型的时候避免一些坑。</p>
+</blockquote>
+<h2 id="highcharts">Highcharts</h2>
+<p>优势：</p>
+<ul>
+<li>支持浏览器较低版本， 由于Highcharts的图是使用svg或vml生成的，所以在不支持canvas的浏览器中仍然可以使用。</li>
+<li>文档和例子详尽</li>
+<li>坐标轴(xAxis,yAxis)的标签(label)样式可以定制。</li>
+<li>用node.js + phantom.js可以用于在服务端生成图片，这一点可以用于邮件发送报表。</li>
+</ul>
+<p>劣势：</p>
+<ul>
+<li>图片不能直接保存。需要使用exporter组件</li>
+<li>图缩放只支持连续时间，不支持自定义的项。</li>
+</ul>
+<h2 id="echarts">Echarts</h2>
+<p>优势：</p>
+<ul>
+<li>性能较好，特别是移动端会有一些优势。因为echarts的图是使用canvas来生成。</li>
+<li>图片可以直接右键保存。</li>
+<li>图缩放(dataZoom)支持自定义。</li>
+<li>文档和例子详尽，不过文档相对难读懂</li>
+</ul>
+<p>劣势：</p>
+<ul>
+<li>在一些细节上支持不足，如下：</li>
+<li>堆积(stack)柱状图不能自动计算和值和各部分的比例</li>
+<li>图例(legend)不会自动设置，需要手动设置</li>
+<li>图例(legend)中的icon不能根据状态设置</li>
+<li>标签中不能添加阴影</li>
+<li>提示框(tooltip)中条目的默认顺序没有对应正确</li>
+<li>图上的标签(label)没有阴影，需要自己做很多效果来区别出来文字和图。</li>
+</ul>
+<h2 id="d3">D3</h2>
+<p>优势：</p>
+<ul>
+<li>可以做到的效果比较丰富，不过需要做的工作相对较多</li>
+</ul>
+<p>劣势：</p>
+<ul>
+<li>提供的API支持比较原始，绝大部分效果都需要自己完成.</li>
+<li>基础还是架构于svg上，在一些复杂效果上性能会比较差。</li>
+</ul>
+<div id="disqus_thread"></div></div><ul class="catalog"><li><a href="/pages/blog.html#Project Management">Project Management</a></li><li><a href="/pages/blog.html#Engineering">Engineering</a></li><li><a href="/pages/blog.html#Server / Deployment">Server / Deployment</a></li><li><a href="/pages/blog.html#Security">Security</a></li><li><a href="/pages/blog.html#Database">Database</a></li><li><a href="/pages/blog.html#Frontend">Frontend</a></li><li><a href="/pages/blog.html#Ruby / Ruby on Rails">Ruby / Ruby on Rails</a></li><li><a href="/pages/blog.html#PHP">PHP</a></li><li><a href="/pages/blog.html#Java">Java</a></li><li><a href="/pages/blog.html#Golang">Golang</a></li><li><a href="/pages/blog.html#Python">Python</a></li><li><a href="/pages/blog.html#Test">Test</a></li><li><a href="/pages/blog.html#Toolkits">Toolkits</a></li></ul></div></body><script>(function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = '//xiunen.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+})();</script><script type="text/javascript">(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-78432336-1', 'auto');
+ga('send', 'pageview');</script></html>
